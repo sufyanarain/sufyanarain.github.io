@@ -15,8 +15,11 @@
   /* ******* navbar styling *********** */
   
   .navBar {
-      background-color: rgb(49, 47, 47);
+      background-color: rgba(49, 47, 47, 0.9);
       color: rgb(197, 197, 197);
+      position: fixed;
+      top: 0;
+      width: 100%;
       /* background-image: url("images/bahriya1.jpg"); */
   }
   
@@ -36,7 +39,11 @@
   .fa-apple,
   .fa-shopping-bag,
   .fa-search {
-      font-size: 22px;
+      font-size: 20px;
+  }
+  
+  .appleNav {
+      font-size: 20px !important;
   }
   
   .fa-search {
@@ -50,6 +57,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-top: 44px;
   }
   
   .covidAlert a {
@@ -473,18 +481,91 @@
       /* margin: 20px auto; */
       padding-top: 13px;
   }
+  
+  .aboutText p {
+      margin-bottom: 20px;
+  }
   /* ************* about list ***************/
+  
+  .maindivList {
+      background-color: rgb(245, 245, 245);
+  }
   
   .lists {
       display: flex;
       flex-wrap: wrap;
       margin: 10px;
-      justify-content: center;
-      width: 900px;
+      justify-content: space-between;
+      width: 990px;
+      height: 450px;
       margin: auto;
   }
   
   .lists ul {
       line-height: 25px;
-      margin: 10px 30px;
+      margin: 10px 50px;
+      font-size: 13px;
+      color: rgb(109, 109, 109);
+  }
+  
+  .boldLi {
+      font-weight: bold;
+      color: rgb(77, 77, 77);
+      font-size: 13px;
+  }
+  /* ************* footer ***************** */
+  
+  .footerMaindiv {
+      background-color: rgb(245, 245, 245);
+  }
+  
+  .footer {
+      /* display: flex; */
+      width: 73%;
+      margin: auto;
+  }
+  
+  .footer p {
+      font-size: 13px;
+      color: #747575;
+      margin-bottom: 10px;
+  }
+  
+  .footer p a {
+      font-size: 13px;
+      color: #0071e3b0;
+      font-weight: bold;
+  }
+  
+  .copyRight {
+      display: flex;
+  }
+  
+  .copyRight p {
+      font-size: 13px;
+      color: #747575;
+  }
+  
+  .copyRight ul {
+      display: flex;
+      padding: 0px 9px;
+      margin-bottom: 19px;
+  }
+  
+  .copyRight ul hr {
+      color: brown;
+      height: 18px;
+  }
+  
+  .copyRight ul li {
+      padding: 0px 13px;
+  }
+  
+  .copyRight ul li a {
+      color: #747575;
+      font-size: 13px;
+  }
+  
+  .copyRight p {
+      margin-right: 25px;
   }
