@@ -223,7 +223,7 @@
   
   .wwdc21 {
       width: 49%;
-      background-color: black;
+      background-color: rgb(0, 0, 0);
       height: 580px;
       color: white;
       /* background-attachment: fixed; */
@@ -234,8 +234,8 @@
   
   .wwdc21 img {
       margin: auto;
-      /* width: 700px;
-      height: 200px; */
+      width: 645px;
+      height: 372px;
       display: block;
       position: relative;
       bottom: -14px;
@@ -313,8 +313,8 @@
   
   .fitness img {
       margin: auto;
-      /* width: 700px;
-        height: 200px; */
+      width: 645px;
+      height: 372px;
       display: block;
       position: relative;
       bottom: -14px;
@@ -395,8 +395,8 @@
   
   .one img {
       margin: auto;
-      /* width: 700px;
-      height: 200px; */
+      width: 645px;
+      height: 372px;
       display: block;
       position: relative;
       bottom: -14px;
