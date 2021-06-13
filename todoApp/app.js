@@ -45,7 +45,7 @@ addBtn.addEventListener("click", addBtnFunc)
 function addBtnFunc() {
     if (userInput.value === "") {
 
-        userInput.value = " "
+        userInput.value = "please input some text"
     } else {
         listUl.innerHTML += "<li id='listLi'>" + userInput.value + "<button id='deleteBtn' onclick='deleteFunc(this)''>Delete</button><button id='editBtn' onclick='editBtn11(this)'>Edit</button></li>";
         userInput.value = " "
