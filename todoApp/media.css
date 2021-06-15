@@ -1,9 +1,7 @@
 
 
 @media screen and (max-width: 600px) {
-    body{
-        
-    }
+    
 
     .main{
         padding-top: 20px;
@@ -31,20 +29,23 @@
 
     .showList button{
         height: 33px;
-        width: 75px;
+        width: 80px;
         margin: 0px 2px;
         
     }
     
     .showList ul li{
-        font-size: 16px;
+        font-size: 18px;
         width: 100%;
         margin: 5px 0px;
     
     }
 
     .showList ul li input{
-        width: 95px;
+        margin-left: 5px;
+        width: 180px;
+        padding: 3px;
+        font-size: 18px !important;
        
     }
     

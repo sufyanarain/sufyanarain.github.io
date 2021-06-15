@@ -44,7 +44,7 @@ addBtn.addEventListener("click", addBtnFunc)
 
 function addBtnFunc() {
     
-        listUl.innerHTML += "<li id='listLi'>" + userInput.value + "<button id='deleteBtn' onclick='deleteFunc(this)''>Delete</button><button id='editBtn' onclick='editBtn11(this)'>Edit</button></li>";
+        listUl.innerHTML += "<li id='listLi' class='hideFont'>" + userInput.value + "<button id='deleteBtn' onclick='deleteFunc(this)''>Delete</button><button id='editBtn' onclick='editBtn11(this)'>Edit</button></li>";
         userInput.value = " "
     
 
@@ -74,11 +74,18 @@ function editBtn11(editbtn) {
     createupdateBtn.addEventListener('click', updateFunc)
     createupdateBtn.appendChild(updateBtnText)
     // console.log(editbtn.parentNode)
-
+    
     editbtn.parentNode.appendChild(createupdateBtn);
-
+    
     if (!createupdateBtn.disabled) {
-        editbtn.classList = "hidden"
+        editbtn.classList = "hidden";
+        editbtn.parentNode.childNodes[1].classList = "hidden"
+        editbtn.parentNode.id = "listLin"
+        
+        console.log(editbtn.parentNode)
+
+        // console.log(editbtn.parentNode.childNodes[1])
+
     }
 
 
@@ -90,11 +97,15 @@ function updateFunc() {
     var inputEdit112 = document.getElementById("inputEdit112")
     this.parentNode.childNodes[0].nodeValue = this.parentNode.childNodes[3].value
     // console.log(this.parentNode.childNodes[2])
-    this.parentNode.childNodes[2].classList.remove("hidden")
+    this.parentNode.childNodes[2].classList.remove("hidden");
+    this.parentNode.childNodes[1].classList.remove("hidden")
+    console.log(this.parentNode)
     // console.log(this.parentNode.childNodes[1].childNodes[0].nodeValue)
     // console.log(inputEdit112)
+    this.parentNode.id = "listLi"
     inputEdit112.remove()
     this.remove()
+
 
     // editBtn11()
 
