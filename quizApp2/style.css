@@ -8,12 +8,6 @@ body {
 }
 
 
-/* @font-face {
-    font-family: "San Francisco";
-    font-weight: 400;
-    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
-} */
-
 .mainDiv {
     display: flex;
     justify-content: center;
@@ -98,7 +92,7 @@ body {
 }
 
 
-li,label,.liOptions{
+li,label,.liOptions,button{
     cursor: pointer;
     margin: 10px 4px;
 }
