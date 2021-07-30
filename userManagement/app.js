@@ -11,9 +11,11 @@ var userData = localStorage.getItem("userLocal1");
 if(userData === null){
     var userData = []
     
+}else{
+
+    userData = JSON.parse(userData)
 }
 // var userData = localStorage.getItem("userLocal1");
-userData = JSON.parse(userData)
 
 
 // adding an event listener on login button
