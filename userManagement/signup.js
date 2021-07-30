@@ -24,7 +24,7 @@ signUp.addEventListener('click', function () {
     if (InputUser.value === "") {
         InputUser.style.borderColor = "red";
         userCond = false;
-        console.log(userCond)
+        // console.log(userCond)
     }
     else {
         InputUser.style.borderColor = "#ccc";
@@ -33,7 +33,7 @@ signUp.addEventListener('click', function () {
     if (InputEmail.value === "") {
         InputEmail.style.borderColor = "red";
         userCond = false;
-        console.log(userCond)
+        // console.log(userCond)
     }
     else {
         InputEmail.style.borderColor = "#ccc";
@@ -41,7 +41,7 @@ signUp.addEventListener('click', function () {
     if (InputPassword1.value === "") {
         InputPassword1.style.borderColor = "red";
         userCond = false;
-        console.log(userCond)
+        // console.log(userCond)
     }
     else {
         InputPassword1.style.borderColor = "#ccc";
@@ -49,7 +49,7 @@ signUp.addEventListener('click', function () {
     if (InputPassword2.value === "") {
         InputPassword2.style.borderColor = "red";
         userCond = false;
-        console.log(userCond)
+        // console.log(userCond)
     }
     else {
         InputPassword2.style.borderColor = "#ccc";
@@ -64,7 +64,7 @@ signUp.addEventListener('click', function () {
     } else {
         InputEmail.style.borderColor = "red";
         userCond = false;
-        console.log(userCond)
+        // console.log(userCond)
 
     }
 
@@ -80,14 +80,14 @@ signUp.addEventListener('click', function () {
         InputPassword1.style.borderColor = "red";
         InputPassword2.style.borderColor = "red";
         userCond = false;
-        console.log(userCond)
+        // console.log(userCond)
     }
 
     if (InputPassword1.value !== InputPassword2.value) {
         InputPassword1.style.borderColor = "red";
         InputPassword2.style.borderColor = "red";
         userCond = false;
-        console.log(userCond)
+        // console.log(userCond)
 
     } else {
         // InputPassword1.style.borderColor = "#ccc";
