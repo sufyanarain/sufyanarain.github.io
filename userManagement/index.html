@@ -15,18 +15,19 @@
 
 <body>
 
-    <div class="mainDive">
+    <div id="mainDiv" class="mainDive">
 
         <div class="container-sm innerDiv">
             <!-- <form> -->
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="loginEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <input placeholder="please enter your email" type="email" class="form-control" id="loginEmail1" aria-describedby="emailHelp">
+                    
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="loginPassword">
+                    <input placeholder="please enter your password" type="password" class="form-control" id="loginPassword">
+                    <div id="LoginHelp" class="form-text text-danger">&nbsp;</div>
                 </div>
 
                 <button id="login" type="submit" class="btn loginBtn btn-primary">Login</button>

@@ -1,52 +1,58 @@
-
+// getting data in variables
 var InputUser = document.getElementById("InputUser");
 var InputEmail = document.getElementById("InputEmail");
 var InputPassword1 = document.getElementById("InputPassword1");
 var InputPassword2 = document.getElementById("InputPassword2");
 var signUp = document.getElementById("signUp");
 
-var arr = [];
-
+// created a constructed function for getting user data
 function TakeUserData(userName, email, password1) {
     this.userName = userName;
     this.email = email;
     this.password1 = password1;
-    
+
 }
 
-var userCond = false;
 
+// added event listenr on signup button
 signUp.addEventListener('click', function () {
+    // created a flag for checking user 
+    var userCond = true;
 
     // form validation
-    if (InputUser.value === "" || InputUser.value.length < 6) {
+
+    if (InputUser.value === "") {
         InputUser.style.borderColor = "red";
+        userCond = false;
+        console.log(userCond)
     }
     else {
         InputUser.style.borderColor = "#ccc";
-        userCond = true;
     }
 
     if (InputEmail.value === "") {
         InputEmail.style.borderColor = "red";
+        userCond = false;
+        console.log(userCond)
     }
     else {
         InputEmail.style.borderColor = "#ccc";
-        userCond = true;
     }
     if (InputPassword1.value === "") {
         InputPassword1.style.borderColor = "red";
+        userCond = false;
+        console.log(userCond)
     }
     else {
         InputPassword1.style.borderColor = "#ccc";
-        userCond = true;
     }
     if (InputPassword2.value === "") {
         InputPassword2.style.borderColor = "red";
+        userCond = false;
+        console.log(userCond)
     }
     else {
         InputPassword2.style.borderColor = "#ccc";
-        userCond = true;
     }
 
     // email validation
@@ -54,10 +60,11 @@ signUp.addEventListener('click', function () {
 
     if (emailRgex.test(InputEmail.value)) {
         InputEmail.style.borderColor = "#ccc";
-        userCond = true;
 
     } else {
         InputEmail.style.borderColor = "red";
+        userCond = false;
+        console.log(userCond)
 
     }
 
@@ -68,38 +75,60 @@ signUp.addEventListener('click', function () {
     if (passwrodRegex.test(InputPassword1.value)) {
         InputPassword1.style.borderColor = "#ccc";
         InputPassword2.style.borderColor = "#ccc";
-        userCond = true;
 
     } else {
         InputPassword1.style.borderColor = "red";
         InputPassword2.style.borderColor = "red";
+        userCond = false;
+        console.log(userCond)
     }
 
     if (InputPassword1.value !== InputPassword2.value) {
-        InputPassword1.style.borderColor = "#ccc";
-        InputPassword2.style.borderColor = "#ccc";
-        userCond = true;
-    } else {
-        
         InputPassword1.style.borderColor = "red";
         InputPassword2.style.borderColor = "red";
+        userCond = false;
+        console.log(userCond)
+
+    } else {
+        // InputPassword1.style.borderColor = "#ccc";
+        // InputPassword2.style.borderColor = "#ccc";
+
     }
 
-    console.log(userCond)
-    
+    // console.log(userCond)
+
 
 
 
     // putinng data to constructor object
-    if(userCond){
-        user1 = new TakeUserData(InputUser.value,InputEmail.value,InputPassword1.value);
-        arr.push(user1)
+    if (userCond) {
+        user1 = new TakeUserData(InputUser.value, InputEmail.value, InputPassword1.value);
 
-        localStorage.setItem("userLocal",JSON.stringify(arr))
+        // made a condition for setting data in local storage
+        var getFromLocalS = localStorage.getItem("userLocal1");
+        if (getFromLocalS === null) {
+            var arr1 = [];
+
+        } else {
+            var getArryFromLocal = localStorage.getItem("userLocal1")
+            arr1 = JSON.parse(getArryFromLocal);
+
+        }
+        // pushing data to array
+        arr1.push(user1)
+
+        // pushing data to local storage
+        localStorage.setItem("userLocal1", JSON.stringify(arr1))
         // console.log(localStorage.getItem("userLocal"))
+        alert("your account has been created. please login");
+        // resetting values of user data
+        InputUser.value = "";
+        InputEmail.value = "";
+        InputPassword1.value = "";
+        InputPassword2.value = "";
+
     }
 
-    console.log(localStorage.getItem("userLocal"))
 
 
 
