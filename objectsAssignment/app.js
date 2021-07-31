@@ -83,35 +83,42 @@ var tableBody = document.getElementById("tableBody");
 
 var gend = "";
 
-var userObjj = []
 submit.addEventListener('click', function () {
     for (var i = 0; i < chkGender.length; i++) {
         if (chkGender[i].checked) {
             gend = chkGender[i].value;
-            
+
         }
     }
-    
+
     var qualiResult = qualiSelect.options[qualiSelect.selectedIndex].text;
     var professResult = profeSelect.options[profeSelect.selectedIndex].text;
-    
-    
-    
+
+
+
     var userInputData = new ChkPopulation(InputUser.value, gend, inputAddress.value, qualiResult, professResult);
-    
-    
-    
+
+var getFromLocal = localStorage.getItem("userData");
+// getFromLocal = JSON.parse(getFromLocal)
+if(getFromLocal === null){
+
+    var userObjj = []
+}else{
+    var getArryLocal = localStorage.getItem("userData");
+    userObjj = JSON.parse(getFromLocal)
+}
+
     userObjj.push(userInputData)
-    
+
     localStorage.setItem('userData', JSON.stringify(userObjj))
     // *** reseting the valu after submitted *******
     InputUser.value = ""
     inputAddress.value = ""
     qualiSelect.selectedIndex = 0;
     profeSelect.selectedIndex = 0;
-    
+
     // var getFromLocal = JSON.parse(localStorage.getItem('userobject'))
-    
+
     // console.log(getFromLocal)
     displayData()
 
@@ -125,19 +132,28 @@ function displayData() {
     var getFromLocal = localStorage.getItem('userData');
     getFromLocal = JSON.parse(getFromLocal)
     console.log(getFromLocal)
-    // tableBody.innerHTML = ""
-    for(var i = 0;i<getFromLocal.length;i++){
+    tableBody.innerHTML = ""
+    for (var i = 0; i < getFromLocal.length; i++) {
         tableBody.innerHTML += `<tr>
-    <th scope="row">${i+1}</th>
+    <th scope="row">${i + 1}</th>
     <td>${getFromLocal[i].name}</td>
     <td>${getFromLocal[i].gender}</td>
     <td>${getFromLocal[i].address}</td>
-    <td>${getFromLocal[i].profession}</td>
     <td>${getFromLocal[i].qualification}</td>
+    <td>${getFromLocal[i].profession}</td>
     </tr>`
-    }
 }
+}
+
+// <td><button onclick="deleteFunc(this)" class="btn-primary">Delete</button></td>
+// function deleteFunc(btn){
+//     btn.parentNode.parentNode.remove();
+// }
+
+
+
 displayData()
+
 
 
 

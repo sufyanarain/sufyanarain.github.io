@@ -129,21 +129,6 @@ signUp.addEventListener('click', function () {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // var userData = new TakeUserData(InputUser.value, InputEmail.value, InputPassword1.value, InputPassword2.value);
 
 })
