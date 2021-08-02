@@ -81,10 +81,14 @@ login.addEventListener('click', function () {
         }
     }
     localStorage.setItem("loginObjD",JSON.stringify(loginObj));
-    console.log(loginObj)
+    console.log(loginObj);
+    console.log(loginUser);
+
     // added an alert if user name and password dont match
     if (!loginUser) {
         LoginHelp.innerHTML = `your account doesn't exist please Sign up`;
+    }else{
+
+        window.location.href = "main.html"
     }
-    window.location.href = "main.html"
 })
