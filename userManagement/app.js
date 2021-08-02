@@ -96,7 +96,17 @@ login.addEventListener('click', function () {
         })
     } else {
 
-        window.location.href = "main.html"
+        swal({
+            title: "Logged in",
+            text: "You are now looged in! Welcome "+loginObj.userName,
+            icon: "success",
+            // dangerMode: true,
+          })
+          .then((willDelete) => {
+            
+              window.location.href = "main.html"
+          });
+
     }
 
 
