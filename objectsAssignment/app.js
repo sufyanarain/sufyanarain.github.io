@@ -137,8 +137,8 @@ function displayData() {
         tableBody.innerHTML += `<tr>
     <th scope="row">${i + 1}</th>
     <td>${getFromLocal[i].name}</td>
-    <td>${getFromLocal[i].gender}</td>
     <td>${getFromLocal[i].address}</td>
+    <td>${getFromLocal[i].gender}</td>
     <td>${getFromLocal[i].qualification}</td>
     <td>${getFromLocal[i].profession}</td>
     </tr>`
