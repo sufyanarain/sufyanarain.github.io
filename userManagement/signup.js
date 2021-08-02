@@ -120,7 +120,18 @@ signUp.addEventListener('click', function () {
         // pushing data to local storage
         localStorage.setItem("userLocal1", JSON.stringify(arr1))
         // console.log(localStorage.getItem("userLocal"))
-        alert("your account has been created. please login");
+        
+            swal({
+                title: "Account Created",
+                text: "Your account has been created! please login",
+                icon: "success",
+                button: "OK",
+            })
+            .then((value) => {
+            window.location.href = "index.html"
+    
+    });
+        // alert("your account has been created. please login");
         // resetting values of user data
         InputUser.value = "";
         InputEmail.value = "";
