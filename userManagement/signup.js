@@ -72,7 +72,7 @@ signUp.addEventListener('click', function () {
 
 
     // password validation
-    var passwrodRegex = /^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    var passwrodRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,16}$/;
 
     if (passwrodRegex.test(InputPassword1.value)) {
         InputPassword1.style.borderColor = "#ccc";
