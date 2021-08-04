@@ -4,6 +4,8 @@ var InputEmail = document.getElementById("InputEmail");
 var InputPassword1 = document.getElementById("InputPassword1");
 var InputPassword2 = document.getElementById("InputPassword2");
 var signUp = document.getElementById("signUp");
+var alertDiv = document.getElementById("alertDiv");
+console.log(alertDiv)
 
 // created a constructed function for getting user data
 function TakeUserData(userName, email, password1) {
@@ -138,6 +140,11 @@ signUp.addEventListener('click', function () {
         InputPassword1.value = "";
         InputPassword2.value = "";
 
+    }else{
+        alertDiv.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Failed!</strong> You should check in on some of those fields below.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>`
     }
 
     // var userData = new TakeUserData(InputUser.value, InputEmail.value, InputPassword1.value, InputPassword2.value);
