@@ -16,7 +16,7 @@ let set;
 let arr = [];
 lap.disabled = true;
 pause.disabled = true;
-reser.disabled = true;
+reset.disabled = true;
 let min = 0;
 let sec = 0;
 let mSec = 0;
