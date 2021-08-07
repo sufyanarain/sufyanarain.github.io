@@ -75,10 +75,10 @@ body {
 
 
 #qDiv{
-    width: 500px;
+    /* width: 500px; */
     font-size: 22px;
     /* background-color: aqua; */
-    padding: 20px;
+    padding: 20px 40px;
     border-radius: 30px;
     border: 1px solid rgb(161, 161, 161);
 

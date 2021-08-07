@@ -51,9 +51,20 @@ var qst = [
     },
 ]
 
+
+// getting data from local storage
+console.log(userData)
+var userData = localStorage.getItem("loginObjD");
+if (userData === null) {
+    var userData = []
+
+} else {
+
+    userData = JSON.parse(userData)
+}
 var userWelcome = document.getElementById("userWelcome");
-var userget = localStorage.getItem("userquiz")
-userWelcome.innerHTML = "welcome "+userget;
+
+userWelcome.innerHTML = "welcome "+userData.userName;
 
 
 var question = document.getElementById("question");
