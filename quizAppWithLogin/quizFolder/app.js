@@ -99,7 +99,7 @@ next.addEventListener('click', function () {
         
     }
     if(counter>2){
-        window.location = "./result.html";
+        window.location = "../result.html";
     
     }else{
             console.log(counter)
