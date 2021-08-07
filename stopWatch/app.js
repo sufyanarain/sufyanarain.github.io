@@ -78,6 +78,7 @@ reset.addEventListener('click', function () {
     document.getElementById("start").disabled = false;
     document.getElementById("reset").disabled = true;
     document.getElementById("lap").disabled = true;
+document.getElementById("pause").disabled = true;
 
 
 })
