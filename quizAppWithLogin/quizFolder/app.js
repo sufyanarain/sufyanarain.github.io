@@ -110,7 +110,7 @@ next.addEventListener('click', function () {
         
     }
     if(counter>2){
-        window.location = "result.html";
+        window.location.href = "../result.html";
     
     }else{
             console.log(counter)
