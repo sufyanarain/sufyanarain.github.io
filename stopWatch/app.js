@@ -92,9 +92,9 @@ lap.addEventListener('click', function () {
         html += `
                  <tr>
                      <th scope="row">${i + 1}</th>
-                     <td id="lapMin">${arr[i].min} Min</td>
-                     <td id="lapSec">${arr[i].sec} Sec</td>
-                     <td id="lapMsec">${arr[i].mSec} Msec</td>
+                     <td id="lapMin">${arr[i].min} min</td>
+                     <td id="lapSec">${arr[i].sec} sec</td>
+                     <td id="lapMsec">${arr[i].mSec} ms</td>
                  </tr>`;
 
     }
