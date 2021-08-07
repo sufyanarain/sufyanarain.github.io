@@ -14,31 +14,67 @@
 </head>
 
 <body>
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-            <h5 id="userName" class="text-white text-center h4"></h5>
-            <h6 id="userEmail" class="text-white text-center"></h6>
-            <!-- <h6 id="User" class="text-white">Collapsed content</h6> -->
-            <!-- <span class="text-muted">Toggleable via the navbar brand.</span> -->
-        </div>
-    </div>
-    <nav class="navbar navbar-dark bg-dark">
+
+    <!-- ******************* navbar from bootstrap ************* -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
+            <a class="navbar-brand" href="#">User Management App</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active disabled" aria-current="page" href="#">Home</a>
+                    </li>
+                    
+                        <li class="nav-item pull-right">
+                            <button class="btn btn-primary" id="logOut">Log out</button>
+                        </li>
 
+                    
+
+                    
+                </ul>
+
+            </div>
         </div>
     </nav>
-    <div class="afterNav">
+
+    <!-- *********** end bootstrap navbar **************** -->
+
+
+
+    <div class="container">
         <h1 id="welcomeUser"></h1>
-        <h2>You are now logged in</h2>
+        <h2 id="userLogedIn"></h2>
         <h2>Press nav button to see more details</h2>
     </div>
 
-    <button class="btn btn-primary" id="logOut">Log out</button>
+    
+
+
+    <!-- *********** users details ******** -->
+
+    <div class="container mt-5">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody id="userTable">
+                
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
 
 
     <!-- ********** link sweet alert Js CDN ************* -->
