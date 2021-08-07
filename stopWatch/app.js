@@ -43,7 +43,7 @@ function calTime() {
     }
 }
 
-
+document.getElementById("lap").disabled = true;
 start.addEventListener('click', function () {
     setClr = setInterval(calTime, 10)
     
