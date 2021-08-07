@@ -14,7 +14,7 @@ let lapMsec = document.getElementById("lapMsec");
 // let start = document.getElementById("start");
 let set;
 let arr = [];
-
+lap.disabled = true;
 let min = 0;
 let sec = 0;
 let mSec = 0;
