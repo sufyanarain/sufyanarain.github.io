@@ -104,7 +104,7 @@ login.addEventListener('click', function () {
           })
           .then((willDelete) => {
             
-              window.location.href = "quizFolder/"
+              window.location.href = "quiz.html"
           });
 
     }
