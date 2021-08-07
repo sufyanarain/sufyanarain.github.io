@@ -19,7 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 0px 15px 5px rgb(221, 221, 221);
+    box-shadow: 0px 0px 15px 5px rgb(233, 233, 233);
 
     /* background-color: rgb(49, 22, 22); */
 }
@@ -83,7 +83,7 @@
     font-family: 'Zilla Slab', serif;
     background-color: rgba(49, 25, 85, 0.979);
     color: white;
-    box-shadow: 0px 0px 10px 3px rgb(207, 207, 207);
+    box-shadow: 0px 0px 10px 3px rgb(226, 226, 226);
 }
 
 .lapTable{
