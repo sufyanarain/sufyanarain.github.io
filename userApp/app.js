@@ -135,6 +135,7 @@ let login = document.getElementById("login");
 let mainDiv = document.getElementById("mainDiv");
 let LoginHelp = document.getElementById("LoginHelp");
 let userObjLogin;
+var userLogin = false;
 
 
 // getting data from local storage
@@ -144,19 +145,24 @@ console.log(userObj)
 
 
 login.addEventListener('click', () => {
-    var userLogin = false;
+    
     for (let i = 0; i < userObj.length; i++) {
         if (userObj[i].email === loginEmail1.value && userObj[i].password === loginPassword.value) {
             userLogin = true;
             userObjLogin = userObj[i]
         }
 
-        // window.location.href = "main.html"
     }
     userObjLogin = JSON.stringify(userObjLogin)
     localStorage.setItem("userObjLoginLocal", userObjLogin)
-    // console.log(userObjLogin)
+    console.log(userObjLogin,userLogin)
+    if (userLogin) {
+        window.location = "main.html"
+    
+    }
 
 })
+
+
 
 // 

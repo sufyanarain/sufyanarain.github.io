@@ -37,26 +37,26 @@
     <!-- ************* end navbar ****************** -->
 
     <!-- ************* teams own div ************** -->
-        <div id="teamsDiv" class="container teamsDisplay mt-5">
-            <h4 class="mb-3">Teams you own</h4>
-            <div class="card">
-                <div class="card-body">
-                  <h5>Team Name</h5>
-                  <h6>members : <span>user1,user2,user3</span></h6>
-                </div>
-              </div>
+    <div  class="container teamsDisplay mt-5">
+        <h4 class="mb-3">Teams you own</h4>
+        <div id="teamsDiv" class="card">
+            <!-- <div class="card-body">
+                <h5>Team Name</h5>
+                <h6>members : <span>user1,user2,user3</span></h6>
+            </div> -->
         </div>
+    </div>
 
-        <!-- ************* teams part div ************** -->
-        <div id="partDiv" class="container teamsDisplay mt-5">
-            <h4 class="mb-3">Teams you own</h4>
-            <div class="card">
-                <div class="card-body">
-                  <h5>Team Name</h5>
-                  <h6>members : <span>user1,user2,user3</span></h6>
-                </div>
-              </div>
+    <!-- ************* teams part div ************** -->
+    <!-- <div id="partDiv" class="container teamsDisplay mt-5">
+        <h4 class="mb-3">Teams you own</h4>
+        <div class="card">
+            <div class="card-body">
+                <h5>Team Name</h5>
+                <h6>members : <span>user1,user2,user3</span></h6>
+            </div>
         </div>
+    </div> -->
 
 
 
@@ -84,24 +84,25 @@
                 <div class="modal-body">
                     <!-- input box -->
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="userName" placeholder="Team Name">
+                        <input type="text" class="form-control" id="teamName" placeholder="Team Name">
                     </div>
                     <!-- select bar  -->
-                    <select class="form-select" aria-label="Default select example">
+                    <select id=selectCategory class="form-select" aria-label="Default select example">
                         <option selected>Select Category</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="One">One</option>
+                        <option value="Two">Two</option>
+                        <option value="Three">Three</option>
                     </select>
                     <!-- end select bar -->
                     <!-- input box -->
                     <div class="mt-3">
-                        <input type="email" class="form-control" id="userEmail"
+                        <input type="email" class="form-control" id="memberEmail"
                             placeholder="invite members (type email)">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="createTeam" type="button" class="btn btn-primary" data-bs-dismiss="modal">Create</button>
+                    <button id="createTeam" type="button" class="btn btn-primary"
+                        data-bs-dismiss="modal">Create</button>
                     <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                 </div>
             </div>

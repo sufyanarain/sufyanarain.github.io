@@ -85,31 +85,101 @@
 
 
 
+
+
+
+
+
+// getting elements from dom
+let modalBBtn = document.getElementById("modalBBtn");
+let createTeam = document.getElementById("createTeam");
+let selectCategory = document.getElementById("selectCategory");
+let teamName = document.getElementById("teamName");
+let memberEmail = document.getElementById("memberEmail");
+let teamsDiv = document.getElementById("teamsDiv");
+let team;
+// console.log(arr)
+let createdObj;
+
+
+// getting data from local storage
 let getUserFromLocal = localStorage.getItem("userObjLoginLocal");
 getUserFromLocal = JSON.parse(getUserFromLocal);
-console.log(getUserFromLocal)
-let user;
-
-// let getUser = () => {
-//     let userL = localStorage.getItem("userObjLocal");
-//     userL = JSON.parse(userL);
-//     for (let i = 0; i < userL.length; i++) {
-//         if (userL[i].name === getUserFromLocal.name ){
-//             user = userL[i]
-//         }
-//         }
-// }
-
-
-
-
+// console.log(getUserFromLocal)
 if (getUserFromLocal) {
     console.log("logedin")
 }
 
-let modalBBtn = document.getElementById("modalBBtn");
-let createTeam = document.getElementById("createTeam");
 
 
 
+// getting data from user input
+let takeUserInput = () => {
+    let selectedCategory = selectCategory.options[selectCategory.selectedIndex].value;
+    let team = {
+        admin: getUserFromLocal.email,
+        teamName: teamName.value,
+        category: selectedCategory,
+        members: memberEmail.value
+    }
+    // pushhing data to an array
 
+    let userL1 = localStorage.getItem("userObjLocal");
+    userL1 = JSON.parse(userL1);
+    for (let i = 0; i < userL1.length; i++) {
+        if (userL1[i].name === getUserFromLocal.name) {
+            arr2 = userL1[i].createdTeam;
+        }
+    }
+
+    if (arr2 === undefined) {
+        var arr = []
+    }else{
+      var  arr = arr2;
+    }
+
+    // }
+    arr.push(team)
+    console.log(arr)
+
+    // getting main user's object from local storage and setting team object to user's main object and setting back to local storage
+    let userL = localStorage.getItem("userObjLocal");
+    userL = JSON.parse(userL);
+    for (let i = 0; i < userL.length; i++) {
+        if (userL[i].name === getUserFromLocal.name) {
+            userL[i].createdTeam = arr;
+        }
+    }
+    // console.log(userL);
+    localStorage.setItem("userObjLocal", JSON.stringify(userL));
+    displayFunc()
+    // return team;
+
+}
+createTeam.addEventListener('click', takeUserInput)
+
+
+
+let displayFunc = () => {
+    teamsDiv.innerHTML = ""
+    // getting main user's data from local storage
+    let userL = localStorage.getItem("userObjLocal");
+    userL = JSON.parse(userL);
+    for (let i = 0; i < userL.length; i++) {
+        if (userL[i].name === getUserFromLocal.name) {
+            createdObj = userL[i].createdTeam;
+        }
+    }
+    console.log(createdObj)
+
+    for (let i = 0; i < createdObj.length; i++) {
+        teamsDiv.innerHTML += `
+                <div class="card-body">
+                    <h5>${createdObj[i].teamName}</h5>
+                    <h6>members : <span>${createdObj[i].teamName}</span></h6>
+                </div>`
+
+    }
+
+}
+displayFunc()

@@ -9,3 +9,23 @@
     font-weight: bolder !important;
 }
 
+.card-body{
+    border: 1px solid #ccc ;
+    margin: 10px;
+    text-transform: uppercase;
+    color: rgb(63, 63, 63);
+}
+
+.container h4{
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.card-body h6{
+    font-size: 14px;
+}
+
+.card-body h6 span{
+    font-weight: 400;
+    font-size: 17px;
+}
