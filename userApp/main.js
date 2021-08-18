@@ -116,15 +116,13 @@ if (getUserFromLocal) {
 
 // getting data from user input
 let takeUserInput = () => {
-
     let selectedCategory = selectCategory.options[selectCategory.selectedIndex].value;
     let team = {
         admin: getUserFromLocal.email,
         teamName: teamName.value,
         category: selectedCategory,
-        members: [memberEmail.value]
+        members: memberEmail.value
     }
-    team.members.push()
     // pushhing data to an array
 
     let userL1 = localStorage.getItem("userObjLocal");
@@ -179,7 +177,7 @@ let displayFunc = () => {
         teamsDiv.innerHTML += `
             <div class="card-body">
                 <h5>${createdObj[i].teamName}</h5>
-                <h6>members : <span>${createdObj[i].teamName}</span></h6>
+                <h6>members : <span>${createdObj[i].members}</span></h6>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Add more members
                 </button>
