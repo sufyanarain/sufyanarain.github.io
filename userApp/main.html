@@ -37,13 +37,37 @@
     <!-- ************* end navbar ****************** -->
 
     <!-- ************* teams own div ************** -->
-    <div  class="container teamsDisplay mt-5">
+    <div class="container teamsDisplay mt-5">
         <h4 class="mb-3">Teams you own</h4>
         <div id="teamsDiv" class="card">
-            <!-- <div class="card-body">
+            <div class="card-body">
                 <h5>Team Name</h5>
                 <h6>members : <span>user1,user2,user3</span></h6>
-            </div> -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ******* modal for add more members ********* -->
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="addMore" placeholder="invite more members (type email)">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">add</button>
+
+                </div>
+            </div>
         </div>
     </div>
 

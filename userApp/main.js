@@ -97,6 +97,7 @@ let selectCategory = document.getElementById("selectCategory");
 let teamName = document.getElementById("teamName");
 let memberEmail = document.getElementById("memberEmail");
 let teamsDiv = document.getElementById("teamsDiv");
+let addMore = document.getElementById("addMore");
 let team;
 // console.log(arr)
 let createdObj;
@@ -115,13 +116,15 @@ if (getUserFromLocal) {
 
 // getting data from user input
 let takeUserInput = () => {
+
     let selectedCategory = selectCategory.options[selectCategory.selectedIndex].value;
     let team = {
         admin: getUserFromLocal.email,
         teamName: teamName.value,
         category: selectedCategory,
-        members: memberEmail.value
+        members: [memberEmail.value]
     }
+    team.members.push()
     // pushhing data to an array
 
     let userL1 = localStorage.getItem("userObjLocal");
@@ -134,8 +137,8 @@ let takeUserInput = () => {
 
     if (arr2 === undefined) {
         var arr = []
-    }else{
-      var  arr = arr2;
+    } else {
+        var arr = arr2;
     }
 
     // }
@@ -174,10 +177,13 @@ let displayFunc = () => {
 
     for (let i = 0; i < createdObj.length; i++) {
         teamsDiv.innerHTML += `
-                <div class="card-body">
-                    <h5>${createdObj[i].teamName}</h5>
-                    <h6>members : <span>${createdObj[i].teamName}</span></h6>
-                </div>`
+            <div class="card-body">
+                <h5>${createdObj[i].teamName}</h5>
+                <h6>members : <span>${createdObj[i].teamName}</span></h6>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Add more members
+                </button>
+            </div>`
 
     }
 
