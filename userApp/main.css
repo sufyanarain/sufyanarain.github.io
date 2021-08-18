@@ -1,0 +1,11 @@
+#modalBBtn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+}
+
+.bi-plus {
+    font-size: 25px;
+    font-weight: bolder !important;
+}
+

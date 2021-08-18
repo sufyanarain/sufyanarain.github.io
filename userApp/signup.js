@@ -168,7 +168,7 @@
 
 // })
 
-// getting data in variables
+// getting elements from dom 
 let InputUser = document.getElementById("InputUser");
 let InputEmail = document.getElementById("InputEmail");
 let InputPassword1 = document.getElementById("InputPassword1");
@@ -180,33 +180,33 @@ let subForm = document.getElementById("subForm");
 
 
 
-
-
-class UserObj{
-    constructor(name,email,password){
+// created class for user's input
+class UserObj {
+    constructor(name, email, password) {
         this.name = name;
         this.email = email;
         this.password = password;
     }
 }
 
-class AddUserData{
-    validate(){
-    let userCond = true;
+
+// created class for validating and clearing methods
+class AddUserData {
+    // validating user's input
+    validate() {
+        let userCond = true;
 
         if (InputUser.value === "") {
             InputUser.style.borderColor = "red";
             userCond = false;
-            // console.log(userCond)
         }
         else {
             InputUser.style.borderColor = "#ccc";
         }
-    
+
         if (InputEmail.value === "") {
             InputEmail.style.borderColor = "red";
             userCond = false;
-            // console.log(userCond)
         }
         else {
             InputEmail.style.borderColor = "#ccc";
@@ -214,7 +214,6 @@ class AddUserData{
         if (InputPassword1.value === "") {
             InputPassword1.style.borderColor = "red";
             userCond = false;
-            // console.log(userCond)
         }
         else {
             InputPassword1.style.borderColor = "#ccc";
@@ -222,72 +221,95 @@ class AddUserData{
         if (InputPassword2.value === "") {
             InputPassword2.style.borderColor = "red";
             userCond = false;
-            // console.log(userCond)
         }
         else {
             InputPassword2.style.borderColor = "#ccc";
         }
-    
-        // email validation
+
+        // email validation regex
         var emailRgex = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
-    
+
         if (emailRgex.test(InputEmail.value)) {
             InputEmail.style.borderColor = "#ccc";
-    
+
         } else {
             InputEmail.style.borderColor = "red";
             userCond = false;
-            // console.log(userCond)
-    
+
         }
-    
-    
-        // password validation
-        // var passwrodRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,16}$/;
-    
-        // if (passwrodRegex.test(InputPassword1.value)) {
-        //     InputPassword1.style.borderColor = "#ccc";
-        //     InputPassword2.style.borderColor = "#ccc";
-    
-        // } else {
-        //     InputPassword1.style.borderColor = "red";
-        //     InputPassword2.style.borderColor = "red";
-        //     userCond = false;
-        //     // console.log(userCond)
-        // }
-    
+
+        // validating password
         if (InputPassword1.value !== InputPassword2.value) {
             InputPassword1.style.borderColor = "red";
             InputPassword2.style.borderColor = "red";
             userCond = false;
-            // console.log(userCond)
-    
+
         } else {
             // InputPassword1.style.borderColor = "#ccc";
             // InputPassword2.style.borderColor = "#ccc";
-    
+
         }
-    
-    
+        // console.log(userCond)    
+        return userCond
+
+
+
     }
-    clear(){
-        
+
+    // resetting form after submit
+    clear() {
+        subForm.reset()
+    }
+
+    // creating object after validating
+    createObj() {
+        let data1 = new UserObj(InputUser.value, InputEmail.value, InputPassword1.value);
+        return data1
+
     }
 }
 
+// creating object from adduserdata class
 let user = new AddUserData();
 
 
+// submit event
 submit.addEventListener('click', event => {
-    
-    
+
+
+
+
+
+
+
     user.validate()
-    
-    
-    
-    
-    
-    console.log("submitted")
+    if (user.validate()) {
+        user.createObj();
+        let userObbb = user.createObj();
+
+        // adding data to local storage
+        let getfromLocal = localStorage.getItem("userObjLocal");
+        if (getfromLocal === null) {
+            var arr = [];
+        } else {
+            arr = JSON.parse(getfromLocal);
+        }
+        
+        arr.push(userObbb)
+        localStorage.setItem("userObjLocal",JSON.stringify(arr))
+
+        console.log(getfromLocal)
+        user.clear()
+    } else {
+        console.log("user cond false")
+
+    }
+
+
+
+
+
+    // console.log("submitted")
     event.preventDefault()
 })
 
