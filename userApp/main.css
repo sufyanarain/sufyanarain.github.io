@@ -29,3 +29,7 @@
     font-weight: 400;
     font-size: 17px;
 }
+
+.logoutBtn{
+    margin-right: 10px !important;
+}
