@@ -21,6 +21,8 @@ getUserFromLocal = JSON.parse(getUserFromLocal);
 // console.log(getUserFromLocal)
 if (getUserFromLocal) {
     console.log(getUserFromLocal)
+}else{
+    window.location = 'index.html'
 }
 
 
@@ -67,7 +69,9 @@ let takeUserInput = () => {
 }
 createTeam.addEventListener('click', takeUserInput)
 
-
+// if(createdObj === undefined){
+//     createdObj = []
+// }
 
 let displayFunc = () => {
     // setting a condition if uset teams object is empty
@@ -82,7 +86,7 @@ let displayFunc = () => {
             createdObj = userL[i].createdTeam;
         }
     }
-
+// console.log(createdObj)
     for (let i = 0; i < createdObj.length; i++) {
         membersArr = ""
         for (let w = 0; w < createdObj[i].members.length; w++) {
@@ -107,7 +111,7 @@ let displayFunc = () => {
     teamName.value = "";
     memberEmail.value = "";
     selectCategory.selectedIndex = 0;
-
+// window.location = 'main.html'
 }
 displayFunc()
 
