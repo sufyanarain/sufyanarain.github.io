@@ -98,7 +98,9 @@ let teamName = document.getElementById("teamName");
 let memberEmail = document.getElementById("memberEmail");
 let teamsDiv = document.getElementById("teamsDiv");
 let addMore = document.getElementById("addMore");
+let deleteTeam = document.getElementById("deleteTeam");
 let team;
+let index;
 // console.log(arr)
 let createdObj;
 
@@ -168,6 +170,7 @@ let displayFunc = () => {
     userL = JSON.parse(userL);
     for (let i = 0; i < userL.length; i++) {
         if (userL[i].name === getUserFromLocal.name) {
+            index = i;
             createdObj = userL[i].createdTeam;
         }
     }
@@ -181,9 +184,22 @@ let displayFunc = () => {
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Add more members
                 </button>
+                <button type="button" id="${i}" onclick="deleteTeamFunc(this.id)" class="btn btn-primary">
+                Delete Team
+                </button>
             </div>`
 
     }
 
 }
 displayFunc()
+
+let deleteTeamFunc = (e) => {
+    createdObj.splice(e, 1)
+    let userL = localStorage.getItem("userObjLocal");
+    userL = JSON.parse(userL);
+    console.log(createdObj);
+    userL[index].createdTeam = createdObj;
+    localStorage.setItem("userObjLocal", JSON.stringify(userL));
+    displayFunc()
+}
