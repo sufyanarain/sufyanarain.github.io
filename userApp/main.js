@@ -1,95 +1,3 @@
-
-// let userName = document.getElementById("userName");
-// let userEmail = document.getElementById("userEmail");
-// let welcomeUser = document.getElementById("welcomeUser");
-// let logOut = document.getElementById("logOut");
-// let userLogedIn = document.getElementById("userLogedIn");
-
-
-
-
-// // var loginUsrObj = loca
-// var loginUsrObj = localStorage.getItem("loginObjD");
-
-// // loginUsrObj = JSON.parse(loginUsrObj)
-// // loginUsrObj.like()
-// // console.log()
-
-// // window.closed = localStorage.removeItem('loginObjD')
-
-// // if(window.closed){
-
-// // }
-
-
-// if (!loginUsrObj) {
-//     // swal({
-//     //     title: "Not Allowed",
-//     //     text: "You are not logged in, please login first",
-//     //     icon: "warning",
-//     //     button: "OK",
-//     // })
-//     //     .then((value) => {
-//             window.location.href = "index.html"
-
-//         // });
-//     // document.body.innerHTML = `you are not logged in, please go to login page`
-
-// } else {
-//     // userName.innerHTML = `Name : ${loginUsrObj.userName}`
-//     // userEmail.innerHTML = `Email : ${loginUsrObj.email}`
-//     welcomeUser.innerHTML = `Welcome : ${loginUsrObj.userName}`;
-//     userLogedIn.innerHTML = `You are now logged in`
-
-
-//     // getting data from local storage
-//     console.log(userData)
-//     var userData = localStorage.getItem("userLocal1");
-//     if (userData === null) {
-//         var userData = []
-
-//     } else {
-
-//         userData = JSON.parse(userData)
-//     }
-
-//     let userTable = document.getElementById("userTable");
-
-//     for (var i = 0; i < userData.length; i++) {
-//         userTable.innerHTML += `
-//          <tr>
-//             <th scope="row">${i+1}</th>
-//             <td>${userData[i].userName}</td>
-//             <td>${userData[i].email}</td>
-//             <td>sufyan liked this user</td>
-//             <td><button id="likeBtn" onclick=likeFunc(this) class="btn btn-primary">Like</button></td>
-//          </tr>
-//     `
-//     }
-
-//     function likeFunc(e){
-//         console.log(e.parentNode.parentNode)
-//     }
-
-
-
-//     logOut.addEventListener('click', function () {
-//         localStorage.removeItem('loginObjD')
-//         window.location.href = "index.html"
-//         console.log(loginUsrObj)
-//     })
-
-// }
-
-
-
-
-
-
-
-
-
-
 // getting elements from dom
 let modalBBtn = document.getElementById("modalBBtn");
 let createTeam = document.getElementById("createTeam");
@@ -97,12 +5,14 @@ let selectCategory = document.getElementById("selectCategory");
 let teamName = document.getElementById("teamName");
 let memberEmail = document.getElementById("memberEmail");
 let teamsDiv = document.getElementById("teamsDiv");
-let addMore = document.getElementById("addMore");
 let deleteTeam = document.getElementById("deleteTeam");
+let addMoreBtn = document.getElementById("addMoreBtn");
+let addMoreInp = document.getElementById("addMoreInp");
 let team;
 let index;
-// console.log(arr)
 let createdObj;
+let membersArr = "";
+let addMemberIndex;
 
 
 // getting data from local storage
@@ -110,7 +20,7 @@ let getUserFromLocal = localStorage.getItem("userObjLoginLocal");
 getUserFromLocal = JSON.parse(getUserFromLocal);
 // console.log(getUserFromLocal)
 if (getUserFromLocal) {
-    console.log("logedin")
+    // console.log("logedin")
 }
 
 
@@ -123,10 +33,11 @@ let takeUserInput = () => {
         admin: getUserFromLocal.email,
         teamName: teamName.value,
         category: selectedCategory,
-        members: memberEmail.value
+        members: [memberEmail.value]
     }
-    // pushhing data to an array
 
+
+    // pushhing data to an array
     let userL1 = localStorage.getItem("userObjLocal");
     userL1 = JSON.parse(userL1);
     for (let i = 0; i < userL1.length; i++) {
@@ -140,10 +51,7 @@ let takeUserInput = () => {
     } else {
         var arr = arr2;
     }
-
-    // }
     arr.push(team)
-    console.log(arr)
 
     // getting main user's object from local storage and setting team object to user's main object and setting back to local storage
     let userL = localStorage.getItem("userObjLocal");
@@ -153,10 +61,8 @@ let takeUserInput = () => {
             userL[i].createdTeam = arr;
         }
     }
-    // console.log(userL);
     localStorage.setItem("userObjLocal", JSON.stringify(userL));
     displayFunc()
-    // return team;
 
 }
 createTeam.addEventListener('click', takeUserInput)
@@ -164,8 +70,8 @@ createTeam.addEventListener('click', takeUserInput)
 
 
 let displayFunc = () => {
-    teamsDiv.innerHTML = ""
     // getting main user's data from local storage
+    teamsDiv.innerHTML = ""
     let userL = localStorage.getItem("userObjLocal");
     userL = JSON.parse(userL);
     for (let i = 0; i < userL.length; i++) {
@@ -174,32 +80,69 @@ let displayFunc = () => {
             createdObj = userL[i].createdTeam;
         }
     }
-    console.log(createdObj)
 
+    membersArr = ""
     for (let i = 0; i < createdObj.length; i++) {
+        console.log(createdObj[i].members.length)
+        for (let w = 0; w < createdObj[i].members.length; w++){
+
+            membersArr += `  ${createdObj[i].members[w]} ,`
+        }
+        // for (let j = 0; j < createdObj[j].members.length; j++) {
+        //     console.log(createdObj[j].members)
+
+
+        // }
+
+
+        console.log(createdObj[i].members)
+        // setting data to dom by loop
         teamsDiv.innerHTML += `
             <div class="card-body">
                 <h5>${createdObj[i].teamName}</h5>
-                <h6>members : <span>${createdObj[i].members}</span></h6>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <h6 >members : <span>${membersArr}</span></h6>
+                <button id="${i}" onclick="addMoreFunc(this.id)" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Add more members
                 </button>
-                <button type="button" id="${i}" onclick="deleteTeamFunc(this.id)" class="btn btn-primary">
+                <button type="button" id="${i}" onclick="deleteTeamFunc(this.id)" class="btn btn-dark">
                 Delete Team
                 </button>
             </div>`
-
     }
 
 }
 displayFunc()
 
 let deleteTeamFunc = (e) => {
+    // getting index from id and deleting from object
     createdObj.splice(e, 1)
+    // getting user's object from local storage
     let userL = localStorage.getItem("userObjLocal");
     userL = JSON.parse(userL);
-    console.log(createdObj);
+    // setting deleted item from object and setting it to main object
     userL[index].createdTeam = createdObj;
+    // setting main object to local storage
     localStorage.setItem("userObjLocal", JSON.stringify(userL));
+    // updating display function to update elemnts after deleting
+    displayFunc()
+}
+
+let addMoreFunc = (e) => {
+    addMemberIndex = e;
+
+}
+
+let addNewMemFunc = () => {
+    createdObj[addMemberIndex].members.push(addMoreInp.value)
+    // getting user's object from local storage
+    let userL3 = localStorage.getItem("userObjLocal");
+    userL3 = JSON.parse(userL3);
+    // setting deleted item from object and setting it to main object
+    userL3[index].createdTeam = createdObj;
+    console.log(userL3[addMemberIndex].createdTeam, createdObj)
+    // setting main object to local storage
+    console.log(userL3)
+    localStorage.setItem("userObjLocal", JSON.stringify(userL3));
+    // updating display function to update elemnts after deleting
     displayFunc()
 }

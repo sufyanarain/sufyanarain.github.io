@@ -40,31 +40,34 @@
     <div class="container teamsDisplay mt-5">
         <h4 class="mb-3">Teams you own</h4>
         <div id="teamsDiv" class="card">
-            <div class="card-body">
+            <!-- <div class="card-body">
                 <h5>Team Name</h5>
                 <h6>members : <span>user1,user2,user3</span></h6>
-            </div>
+            </div> -->
         </div>
     </div>
 
 
     <!-- ******* modal for add more members ********* -->
+    <!-- <button id="${i}" onclick="addMoreFunc(this.id)" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add more members
+        </button> -->
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Add more members</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="addMore" placeholder="invite more members (type email)">
+                        <input type="text" class="form-control" id="addMoreInp" placeholder="invite more members (type email)">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">add</button>
+                    <button id="addMoreBtn" onclick="addNewMemFunc()" type="button" class="btn btn-dark" data-bs-dismiss="modal">Add</button>
 
                 </div>
             </div>
