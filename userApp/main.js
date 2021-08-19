@@ -8,6 +8,7 @@ let teamsDiv = document.getElementById("teamsDiv");
 let deleteTeam = document.getElementById("deleteTeam");
 let addMoreBtn = document.getElementById("addMoreBtn");
 let addMoreInp = document.getElementById("addMoreInp");
+let logoutBtn = document.getElementById("logoutBtn");
 let team;
 let index;
 let createdObj;
@@ -91,14 +92,14 @@ let displayFunc = () => {
         membersArr = ""
         for (let w = 0; w < createdObj[i].members.length; w++) {
 
-            membersArr += `  ${createdObj[i].members[w]} `
+            membersArr += `,  ${createdObj[i].members[w]} `
         }
 
         // setting data to dom by loop
         teamsDiv.innerHTML += `
         <div class="card-body">
             <h5>${createdObj[i].teamName}</h5>
-            <h6 >members : <span>,${membersArr}</span></h6>
+            <h6 >members : <span>${membersArr}</span></h6>
             <button id="${i}" onclick="addMoreFunc(this.id)" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Add more members
             </button>
@@ -150,3 +151,10 @@ let addNewMemFunc = () => {
     // updating display function to update elemnts after deleting
     displayFunc()
 }
+
+
+// logout
+logoutBtn.addEventListener('click',()=>{
+    localStorage.removeItem("userObjLoginLocal");
+    window.location = 'index.html'
+})
