@@ -20,7 +20,7 @@ let getUserFromLocal = localStorage.getItem("userObjLoginLocal");
 getUserFromLocal = JSON.parse(getUserFromLocal);
 // console.log(getUserFromLocal)
 if (getUserFromLocal) {
-    // console.log("logedin")
+    console.log(getUserFromLocal)
 }
 
 
@@ -70,6 +70,8 @@ createTeam.addEventListener('click', takeUserInput)
 
 
 let displayFunc = () => {
+    // setting a condition if uset teams object is empty
+
     // getting main user's data from local storage
     teamsDiv.innerHTML = ""
     let userL = localStorage.getItem("userObjLocal");
@@ -81,34 +83,30 @@ let displayFunc = () => {
         }
     }
 
-    membersArr = ""
     for (let i = 0; i < createdObj.length; i++) {
-        console.log(createdObj[i].members.length)
-        for (let w = 0; w < createdObj[i].members.length; w++){
+        membersArr = ""
+        for (let w = 0; w < createdObj[i].members.length; w++) {
 
-            membersArr += `  ${createdObj[i].members[w]} ,`
+            membersArr += `  ${createdObj[i].members[w]} `
         }
-        // for (let j = 0; j < createdObj[j].members.length; j++) {
-        //     console.log(createdObj[j].members)
 
-
-        // }
-
-
-        console.log(createdObj[i].members)
         // setting data to dom by loop
         teamsDiv.innerHTML += `
-            <div class="card-body">
-                <h5>${createdObj[i].teamName}</h5>
-                <h6 >members : <span>${membersArr}</span></h6>
-                <button id="${i}" onclick="addMoreFunc(this.id)" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Add more members
-                </button>
-                <button type="button" id="${i}" onclick="deleteTeamFunc(this.id)" class="btn btn-dark">
-                Delete Team
-                </button>
-            </div>`
+        <div class="card-body">
+            <h5>${createdObj[i].teamName}</h5>
+            <h6 >members : <span>,${membersArr}</span></h6>
+            <button id="${i}" onclick="addMoreFunc(this.id)" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Add more members
+            </button>
+            <button type="button" id="${i}" onclick="deleteTeamFunc(this.id)" class="btn btn-dark">
+            Delete Team
+            </button>
+        </div>`
     }
+    // resetting the input value
+    teamName.value = "";
+    memberEmail.value = "";
+    selectCategory.selectedIndex = 0;
 
 }
 displayFunc()
@@ -123,6 +121,7 @@ let deleteTeamFunc = (e) => {
     userL[index].createdTeam = createdObj;
     // setting main object to local storage
     localStorage.setItem("userObjLocal", JSON.stringify(userL));
+
     // updating display function to update elemnts after deleting
     displayFunc()
 }
@@ -139,10 +138,11 @@ let addNewMemFunc = () => {
     userL3 = JSON.parse(userL3);
     // setting deleted item from object and setting it to main object
     userL3[index].createdTeam = createdObj;
-    console.log(userL3[addMemberIndex].createdTeam, createdObj)
+    // console.log(userL3[addMemberIndex].createdTeam, createdObj)
     // setting main object to local storage
-    console.log(userL3)
     localStorage.setItem("userObjLocal", JSON.stringify(userL3));
+    //resetting add member input
+    addMoreInp.value = "";
     // updating display function to update elemnts after deleting
     displayFunc()
 }
