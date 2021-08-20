@@ -8,6 +8,7 @@
     position: fixed;
     bottom: 28px;
     right: 28px;
+Border-radius : 6px;
 }
 
 .bi-plus {
@@ -43,9 +44,12 @@
 .logoutBtn{
     margin-right: 10px !important;
 }
+<<<<<<< HEAD
 
 .card-body:hover{
     background-color: rgba(164, 202, 246, 0.315);
     cursor: pointer;
     border: 1px solid rgb(156, 192, 221);
 }
+=======
+>>>>>>> 4c8f0f3476183955eae4736a6ed5f5738ec0f8a6
