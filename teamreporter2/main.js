@@ -122,7 +122,7 @@ let displayFunc = () => {
         teamsDiv.innerHTML += `
         <div class="card-body">
             <h5>${createdObj[i].teamName}</h5>
-            <h6 >members : <span>${membersArr}</span></h6>
+            <div class="membersDiv container">members : <span>${membersArr}</span></div>
             <button id="${i}" onclick="addMoreFunc(this.id)" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Add more members
             </button>
