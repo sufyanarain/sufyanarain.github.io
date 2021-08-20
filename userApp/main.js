@@ -22,13 +22,17 @@ getUserFromLocal = JSON.parse(getUserFromLocal);
 // console.log(getUserFromLocal)
 if (getUserFromLocal) {
     console.log(getUserFromLocal)
-}else{
+} else {
     window.location = 'index.html'
 }
 
 
 
-
+function refresh() {
+    setTimeout(function () {
+        location.reload()
+    }, 100);
+}
 // getting data from user input
 let takeUserInput = () => {
     let selectedCategory = selectCategory.options[selectCategory.selectedIndex].value;
@@ -38,7 +42,7 @@ let takeUserInput = () => {
         category: selectedCategory,
         members: [memberEmail.value]
     }
-
+    refresh()
 
     // pushhing data to an array
     let userL1 = localStorage.getItem("userObjLocal");
@@ -87,7 +91,7 @@ let displayFunc = () => {
             createdObj = userL[i].createdTeam;
         }
     }
-// console.log(createdObj)
+    // console.log(createdObj)
     for (let i = 0; i < createdObj.length; i++) {
         membersArr = ""
         for (let w = 0; w < createdObj[i].members.length; w++) {
@@ -112,8 +116,11 @@ let displayFunc = () => {
     teamName.value = "";
     memberEmail.value = "";
     selectCategory.selectedIndex = 0;
-// window.location = 'main.html'
+    // refresh()
+    // window.location = 'main.html'
 }
+
+// location.reload();
 displayFunc()
 
 let deleteTeamFunc = (e) => {
@@ -154,7 +161,7 @@ let addNewMemFunc = () => {
 
 
 // logout
-logoutBtn.addEventListener('click',()=>{
+logoutBtn.addEventListener('click', () => {
     localStorage.removeItem("userObjLoginLocal");
     window.location = 'index.html'
 })
