@@ -123,9 +123,6 @@ let displayFunc = () => {
         <div class="card-body">
             <h5>${createdObj[i].teamName}</h5>
             <div class="membersDiv container">members : <span>${membersArr}</span></div>
-            <button id="${i}" onclick="addMoreFunc(this.id)" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Add more members
-            </button>
             <button type="button" id="${i}" onclick="deleteTeamFunc(this.id)" class="btn btn-dark">
             Delete Team
             </button>
