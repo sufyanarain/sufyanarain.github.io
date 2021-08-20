@@ -9,10 +9,13 @@ let deleteTeam = document.getElementById("deleteTeam");
 let addMoreBtn = document.getElementById("addMoreBtn");
 let addMoreInp = document.getElementById("addMoreInp");
 let logoutBtn = document.getElementById("logoutBtn");
+let membersUl = document.getElementById("membersUl");
 let team;
 let index;
 let createdObj;
 let membersArr = "";
+let arrForMember = []
+// let membersUl = "";
 let addMemberIndex;
 
 
@@ -40,7 +43,7 @@ let takeUserInput = () => {
         admin: getUserFromLocal.email,
         teamName: teamName.value,
         category: selectedCategory,
-        members: [memberEmail.value]
+        members: arrForMember
     }
     refresh()
 
@@ -72,12 +75,18 @@ let takeUserInput = () => {
     displayFunc()
 
 }
+
+// function showing useres and add them
+let addMemberFunc = (e,eId)=>{
+    let userL = localStorage.getItem("userObjLocal");
+    userL = JSON.parse(userL);
+    arrForMember.push(userL[eId].name);
+    e.remove()
+    console.log(arrForMember);
+
+}
+
 createTeam.addEventListener('click', takeUserInput)
-
-// if(createdObj === undefined){
-//     createdObj = []
-// }
-
 let displayFunc = () => {
     // setting a condition if uset teams object is empty
 
@@ -85,12 +94,22 @@ let displayFunc = () => {
     teamsDiv.innerHTML = ""
     let userL = localStorage.getItem("userObjLocal");
     userL = JSON.parse(userL);
+
+    // loop for displaying members for adding
+    // membersUl = ""
+    for (let i = 0; i < userL.length; i++) {
+        membersUl.innerHTML += `
+        <li onclick="addMemberFunc(this,this.id)" id="${i}">${userL[i].name}</li>`
+    }
+
+    // loop for finding current element and index
     for (let i = 0; i < userL.length; i++) {
         if (userL[i].name === getUserFromLocal.name) {
             index = i;
             createdObj = userL[i].createdTeam;
         }
     }
+
     // console.log(createdObj)
     for (let i = 0; i < createdObj.length; i++) {
         membersArr = ""
@@ -114,7 +133,7 @@ let displayFunc = () => {
     }
     // resetting the input value
     teamName.value = "";
-    memberEmail.value = "";
+    // memberEmail.value = "";
     selectCategory.selectedIndex = 0;
     // refresh()
     // window.location = 'main.html'
@@ -122,6 +141,8 @@ let displayFunc = () => {
 
 // location.reload();
 displayFunc()
+
+
 
 let deleteTeamFunc = (e) => {
     // getting index from id and deleting from object
@@ -136,6 +157,8 @@ let deleteTeamFunc = (e) => {
 
     // updating display function to update elemnts after deleting
     displayFunc()
+    refresh()
+
 }
 
 let addMoreFunc = (e) => {

@@ -50,3 +50,26 @@ Border-radius : 6px;
     cursor: pointer;
     border: 1px solid  rgb(156, 192, 221);
 }
+
+.membersUl{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.membersUl li{
+    padding: 5px 18px;
+    border: 1px solid #ccc;
+    margin: 4px 10px;
+    border-radius: 16px;
+    width: 120px;
+    text-align: center;
+}
+
+.membersUl li:hover{
+    background-color: rgb(44, 44, 44);
+    color: rgb(240, 240, 240);
+    cursor: pointer;
+    border: 1px solid  rgb(56, 56, 56);
+}
