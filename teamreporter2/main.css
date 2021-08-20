@@ -24,6 +24,16 @@ Border-radius : 6px;
     
 }
 
+.card-body button{
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.card-body button:hover{
+    background-color: rgb(0, 0, 0);
+    color: rgb(236, 236, 236);
+    font-weight: 500;
+}
 
 
 .container h4{
@@ -90,7 +100,16 @@ Border-radius : 6px;
     font-weight: 500;
 }
 
+
+
 .membersUl li:hover{
+    background-color: rgb(44, 44, 44);
+    color: rgb(240, 240, 240);
+    cursor: pointer;
+    border: 1px solid  rgb(56, 56, 56);
+}
+
+.membersDiv p:hover{
     background-color: rgb(44, 44, 44);
     color: rgb(240, 240, 240);
     cursor: pointer;
@@ -101,9 +120,7 @@ Border-radius : 6px;
 
 
 @media screen and (max-width: 770px) {
-    body {
-      background-color: lightgreen;
-    }
+   
 
     .card-body{
         margin: 8px;
@@ -139,5 +156,9 @@ Border-radius : 6px;
         align-items: center;
         justify-content: center;
         
+    }
+
+    .logoutBtn{
+        margin-left: 10px !important;
     }
   }
