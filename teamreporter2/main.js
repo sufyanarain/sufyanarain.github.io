@@ -115,7 +115,7 @@ let displayFunc = () => {
         membersArr = ""
         for (let w = 0; w < createdObj[i].members.length; w++) {
 
-            membersArr += `,  ${createdObj[i].members[w]} `
+            membersArr +=`<p>${createdObj[i].members[w]}</p>`  
         }
 
         // setting data to dom by loop
