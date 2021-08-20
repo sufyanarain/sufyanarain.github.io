@@ -21,8 +21,7 @@ Border-radius : 6px;
     margin: 10px;
     text-transform: uppercase;
     color: rgb(63, 63, 63);
-    padding: 8px;
-    margin: 8px;
+    
 }
 
 
@@ -104,6 +103,11 @@ Border-radius : 6px;
 @media screen and (max-width: 770px) {
     body {
       background-color: lightgreen;
+    }
+
+    .card-body{
+        margin: 8px;
+        padding: 8px;
     }
 
     .card-body h5{
