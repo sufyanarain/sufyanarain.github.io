@@ -56,7 +56,7 @@ let addQuestFunc = () => {
     localStorage.setItem("userObjLocal", JSON.stringify(userL))
     console.log(localStorage.getItem("usersClickedTeam"))
 
-
+    questionInp.value = ""
     displayQuestFunc()
     // refresh()
 }
@@ -76,7 +76,7 @@ let deleteQuest = (id, e) => {
     console.log(teamIndex);
 
     userL[userIndex].createdTeam[teamIndex].questions.splice(id, 1);
-    localStorage.setItem("usersClickedTeam", JSON.stringify(userL[userIndex].createdTeam[teamIndex]))
+    localStorage.setItem("userObjLocal", JSON.stringify(userL))
 }
 
 let displayQuestFunc = () => {

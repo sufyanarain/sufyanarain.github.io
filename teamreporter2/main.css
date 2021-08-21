@@ -4,6 +4,11 @@
     box-sizing: border-box;
     user-select: none;
 }
+
+#teamsDiv{
+    border: none;
+}
+
 #modalBBtn {
     position: fixed;
     bottom: 28px;
