@@ -86,6 +86,19 @@ let addMemberFunc = (e,eId)=>{
 
 }
 
+let teamsDecet = (id,e)=>{
+    // getting main user's data from local storage
+    let userL = localStorage.getItem("userObjLocal");
+    userL = JSON.parse(userL);
+    console.log(userL[index].createdTeam[id])
+
+    localStorage.setItem("usersClickedTeam",JSON.stringify(userL[index].createdTeam[id]));
+    localStorage.setItem("currentUser",JSON.stringify(userL[index]));
+    window.location = "team.html"
+
+    // console.log(id,e)
+}
+
 createTeam.addEventListener('click', takeUserInput)
 let displayFunc = () => {
     // setting a condition if uset teams object is empty
@@ -120,7 +133,7 @@ let displayFunc = () => {
 
         // setting data to dom by loop
         teamsDiv.innerHTML += `
-        <div class="card-body">
+        <div id="${i}" onclick="teamsDecet(this.id,this)" class="card-body">
             <h5>${createdObj[i].teamName}</h5>
             <div class="membersDiv container">members : <span>${membersArr}</span></div>
             <button type="button" id="${i}" onclick="deleteTeamFunc(this.id)" class="btn btn-dark">
@@ -135,11 +148,7 @@ let displayFunc = () => {
     // refresh()
     // window.location = 'main.html'
 }
-
-// location.reload();
 displayFunc()
-
-
 
 let deleteTeamFunc = (e) => {
     // getting index from id and deleting from object
