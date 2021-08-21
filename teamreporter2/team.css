@@ -65,7 +65,7 @@
     #questionUl li{
         /* background-color: rgb(151, 94, 94); */
         
-        min-width: 320px;
+        max-width: 320px;
     }
     #teamMembers{
         margin-left: -20px;
