@@ -166,4 +166,12 @@ Border-radius : 6px;
     .logoutBtn{
         margin-left: 10px !important;
     }
+
+    #addMembersHead{
+        font-size: 15px;
+    }
+
+    #membersUl{
+        margin-left: -35px;
+    }
   }
