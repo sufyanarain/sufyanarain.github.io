@@ -6,20 +6,29 @@ let addQuestionBtn = document.getElementById("addQuestionBtn");
 let questionUl = document.getElementById("questionUl");
 let teamMembers = document.getElementById("teamMembers");
 
+function refresh() {
+    setTimeout(function () {
+        location.reload()
+    }, 100);
+}
 
 let displayFunc = () => {
-    let usersClickedTeam = localStorage.getItem("usersClickedTeam");
-    usersClickedTeam = JSON.parse(usersClickedTeam);
-    let currentUser = localStorage.getItem("currentUser");
-    currentUser = JSON.parse(currentUser)
+    let userL = localStorage.getItem("userObjLocal");
+    userL = JSON.parse(userL);
+    let userIndex = localStorage.getItem("userIndex");
+    userIndex = JSON.parse(userIndex);
+
+    let teamIndex = localStorage.getItem("teamIndex");
+    teamIndex = JSON.parse(teamIndex);
+    console.log(teamIndex);
 
 
-    teamName.innerHTML = `Team Name : ${usersClickedTeam.teamName}`;
+    teamName.innerHTML = `Team Name : ${userL[userIndex].createdTeam[teamIndex].teamName}`;
 
-    for (let i = 0; i < usersClickedTeam.members.length; i++) {
+    for (let i = 0; i < userL[userIndex].createdTeam[teamIndex].members.length; i++) {
         teamMembers.innerHTML += `
-        <li id="${i}">${usersClickedTeam.members[i]}</li>`
-        console.log(usersClickedTeam.members[i])
+        <li id="${i}">${userL[userIndex].createdTeam[teamIndex].members[i]}</li>`
+        console.log(userL[userIndex].createdTeam[teamIndex].teamName)
     }
 
 }
@@ -27,35 +36,76 @@ displayFunc()
 
 
 let addQuestFunc = () => {
-    let usersClickedTeam = localStorage.getItem("usersClickedTeam");
-    usersClickedTeam = JSON.parse(usersClickedTeam);
+    let userL = localStorage.getItem("userObjLocal");
+    userL = JSON.parse(userL);
+    let userIndex = localStorage.getItem("userIndex");
+    userIndex = JSON.parse(userIndex);
 
-    if (usersClickedTeam.questions === undefined) {
+    let teamIndex = localStorage.getItem("teamIndex");
+    teamIndex = JSON.parse(teamIndex);
+    console.log(teamIndex);
+
+    if (userL[userIndex].createdTeam[teamIndex].questions === undefined) {
         var questArr = []
     } else {
 
-        questArr = usersClickedTeam.questions;
+        questArr = userL[userIndex].createdTeam[teamIndex].questions;
     }
     questArr.push(questionInp.value)
-
-    usersClickedTeam.questions = questArr;
-    localStorage.setItem("usersClickedTeam", JSON.stringify(usersClickedTeam))
+    userL[userIndex].createdTeam[teamIndex].questions = questArr;
+    localStorage.setItem("userObjLocal", JSON.stringify(userL))
+    console.log(localStorage.getItem("usersClickedTeam"))
 
 
     displayQuestFunc()
-
+    // refresh()
 }
 addQuestionBtn.addEventListener('click', addQuestFunc);
 
 
-let displayQuestFunc = () => {
-    let usersClickedTeam = localStorage.getItem("usersClickedTeam");
-    usersClickedTeam = JSON.parse(usersClickedTeam);
+let deleteQuest = (id, e) => {
+    e.parentNode.parentNode.remove()
 
-    console.log(usersClickedTeam.questions[2])
-    for (let i = 0; i < usersClickedTeam.questions.length; i++) {
-        questionUl.innerHTML += `
-        <li id="${i}" class="list-group-item">${usersClickedTeam.questions[i]}</li>`
-    }
+    let userL = localStorage.getItem("userObjLocal");
+    userL = JSON.parse(userL);
+    let userIndex = localStorage.getItem("userIndex");
+    userIndex = JSON.parse(userIndex);
+
+    let teamIndex = localStorage.getItem("teamIndex");
+    teamIndex = JSON.parse(teamIndex);
+    console.log(teamIndex);
+
+    userL[userIndex].createdTeam[teamIndex].questions.splice(id, 1);
+    localStorage.setItem("usersClickedTeam", JSON.stringify(userL[userIndex].createdTeam[teamIndex]))
+}
+
+let displayQuestFunc = () => {
+    questionUl.innerHTML = ""
+    
+    let userL = localStorage.getItem("userObjLocal");
+    userL = JSON.parse(userL);
+    let userIndex = localStorage.getItem("userIndex");
+    userIndex = JSON.parse(userIndex);
+
+    let teamIndex = localStorage.getItem("teamIndex");
+    teamIndex = JSON.parse(teamIndex);
+    console.log(teamIndex);
+
+    // if(userL[userIndex].createdTeam[teamIndex].questions === undefined){
+    //     userL[userIndex].createdTeam[teamIndex].questions = []
+    // }else{
+
+        console.log(userL[userIndex].createdTeam[teamIndex])
+        if(userL[userIndex].createdTeam[teamIndex].questions){
+            
+            for (let i = 0; i < userL[userIndex].createdTeam[teamIndex].questions.length; i++) {
+                questionUl.innerHTML += `
+                <li id="${i}" class="list-group-item"><div>${userL[userIndex].createdTeam[teamIndex].questions[i]}</div><div><i id="${i}" onclick="deleteQuest(this.id,this)" class="bi bi-trash"></i></div></li>`
+            }
+        }
+    // }
+
+    console.log(userL[userIndex].createdTeam[teamIndex].questions)
+
 }
 displayQuestFunc()

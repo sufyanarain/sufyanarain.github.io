@@ -92,8 +92,8 @@ let teamsDecet = (id,e)=>{
     userL = JSON.parse(userL);
     console.log(userL[index].createdTeam[id])
 
-    localStorage.setItem("usersClickedTeam",JSON.stringify(userL[index].createdTeam[id]));
-    localStorage.setItem("currentUser",JSON.stringify(userL[index]));
+    localStorage.setItem("userIndex",JSON.stringify(index));
+    localStorage.setItem("teamIndex",JSON.stringify(id));
     window.location = "team.html"
 
     // console.log(id,e)
