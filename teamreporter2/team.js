@@ -180,6 +180,25 @@ let addMembers = () => {
 addMembers()
 
 
+// delete team function
+let deleteTeamFunc = () => {
+    // getting data from localstorage
+    let userL = localStorage.getItem("userObjLocal");
+    userL = JSON.parse(userL);
+    
+    let userIndex = localStorage.getItem("userIndex");
+    userIndex = JSON.parse(userIndex);
+
+    let teamIndex = localStorage.getItem("teamIndex");
+    teamIndex = JSON.parse(teamIndex);
+    // getting index from id and deleting from object
+    userL[userIndex].createdTeam.splice(teamIndex, 1)
+    // setting deleted item from object and setting it to main object
+    localStorage.setItem("userObjLocal", JSON.stringify(userL));
+    window.location = "main.html"
+
+}
+
 
 
 

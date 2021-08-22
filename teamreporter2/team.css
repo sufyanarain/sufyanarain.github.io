@@ -9,7 +9,7 @@
 
 #mainHead{
     text-align: center;
-    margin-top: 20px;
+    margin-top: 12px;
     /* background-color: rgb(124, 82, 82); */
 }
 
@@ -36,7 +36,7 @@
     /* cursor: pointer; */
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     border: 1px solid #ccc;
     font-weight: 500;
 }
@@ -99,6 +99,21 @@ padding: 4px 7px;
     border: 1px solid  rgb(56, 56, 56);
 }
 
+#teamMembers li{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 10px;
+}
+
+.bi-x-circle-fill {
+    margin-right: -29px;
+    /* background-color: rgb(170, 71, 71); */
+}
+
+#modalBBtn{
+    margin-bottom: 10px;
+}
+
 
 
 @media screen and (max-width: 570px) {
@@ -117,4 +132,17 @@ padding: 4px 7px;
     margin-left: 8px;
     }
 
+    #teamMembers li{
+        width: 40vw;
+    }
+
+    .bi-x-circle-fill {
+        margin-right: -10px;
+        /* background-color: rgb(170, 71, 71); */
+    }
+
+    #deleteTeamDiv button {
+        width: 95%;
+        margin-left: 8px;
+    }
 }

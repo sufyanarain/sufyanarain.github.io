@@ -77,7 +77,7 @@ let takeUserInput = () => {
 }
 
 // function showing useres and add them
-let addMemberFunc = (e,eId)=>{
+let addMemberFunc = (e, eId) => {
     let userL = localStorage.getItem("userObjLocal");
     userL = JSON.parse(userL);
     arrForMember.push(userL[eId].name);
@@ -86,14 +86,14 @@ let addMemberFunc = (e,eId)=>{
 
 }
 
-let teamsDecet = (id,e)=>{
+let teamsDecet = (id, e) => {
     // getting main user's data from local storage
     let userL = localStorage.getItem("userObjLocal");
     userL = JSON.parse(userL);
     console.log(userL[index].createdTeam[id])
 
-    localStorage.setItem("userIndex",JSON.stringify(index));
-    localStorage.setItem("teamIndex",JSON.stringify(id));
+    localStorage.setItem("userIndex", JSON.stringify(index));
+    localStorage.setItem("teamIndex", JSON.stringify(id));
     window.location = "team.html"
 
     // console.log(id,e)
@@ -127,19 +127,21 @@ let displayFunc = () => {
         membersArr = ""
         for (let w = 0; w < createdObj[i].members.length; w++) {
 
-            membersArr +=`<p>${createdObj[i].members[w]}</p>`  
+            membersArr += `<p>${createdObj[i].members[w]}</p>`
         }
 
         // setting data to dom by loop
         teamsDiv.innerHTML += `
         <div id="${i}" onclick="teamsDecet(this.id,this)" class="card-body">
-            <h5>${createdObj[i].teamName}</h5>
+            <h5>Team Name : <span id="teamSpan">${createdObj[i].teamName}</span></h5>
             <div class="membersDiv container">members : <span>${membersArr}</span></div>
-            <button type="button" id="${i}" onclick="deleteTeamFunc(this.id)" class="btn btn-dark">
-            Delete Team
-            </button>
+            
         </div>`
     }
+
+    // <button type="button" id="${i}" onclick="deleteTeamFunc(this.id)" class="btn btn-dark">
+    //     Delete Team
+    // </button>
     // resetting the input value
     teamName.value = "";
     // memberEmail.value = "";
