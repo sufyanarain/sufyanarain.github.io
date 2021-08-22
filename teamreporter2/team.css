@@ -113,8 +113,16 @@ padding: 4px 7px;
     /* background-color: rgb(170, 71, 71); */
 }
 
+.memberHead{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
 #modalBBtn{
     margin-bottom: 10px;
+    width: 300px !important;
 }
 
 #deleteTeamDiv{
@@ -134,7 +142,7 @@ padding: 4px 7px;
     #questionUl li{
         /* background-color: rgb(151, 94, 94); */
         
-        max-width: 320px;
+        width: 98%;
     }
     #teamMembers{
         margin-left: -20px;
