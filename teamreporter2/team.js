@@ -5,11 +5,38 @@ let questionInp = document.getElementById("questionInp");
 let addQuestionBtn = document.getElementById("addQuestionBtn");
 let questionUl = document.getElementById("questionUl");
 let teamMembers = document.getElementById("teamMembers");
+let membersUl = document.getElementById("membersUl");
+let membersLi = document.getElementsByClassName("membersLi");
+let membersLi2 = document.getElementsByClassName("membersLi2");
+let arrForMember = [];
+let showingMembers = [];
 
 function refresh() {
     setTimeout(function () {
         location.reload()
     }, 100);
+}
+
+let deletMemberFunc = (e, eId) => {
+    let userL = localStorage.getItem("userObjLocal");
+    userL = JSON.parse(userL);
+    let userIndex = localStorage.getItem("userIndex");
+    userIndex = JSON.parse(userIndex);
+
+    let teamIndex = localStorage.getItem("teamIndex");
+    teamIndex = JSON.parse(teamIndex);
+    e.parentNode.remove();
+    console.log(e.parentNode);
+    // e.parentNode.remove()
+
+    userL[userIndex].createdTeam[teamIndex].members.splice(eId, 1)
+    // arrForMember.push(userL[eId].name);
+
+    // userL[userIndex].createdTeam[teamIndex].members.push(userL[eId].name);
+    console.log(userL);
+    localStorage.setItem("userObjLocal", JSON.stringify(userL))
+    refresh()
+
 }
 
 let displayFunc = () => {
@@ -27,14 +54,14 @@ let displayFunc = () => {
 
     for (let i = 0; i < userL[userIndex].createdTeam[teamIndex].members.length; i++) {
         teamMembers.innerHTML += `
-        <li id="${i}">${userL[userIndex].createdTeam[teamIndex].members[i]}</li>`
-        console.log(userL[userIndex].createdTeam[teamIndex].teamName)
+        <li class="membersLi" id="${i}">${userL[userIndex].createdTeam[teamIndex].members[i]}<i id="${i}" onclick="deletMemberFunc(this,this.id)" class="bi bi-x-circle-fill "></i></li>`
+        showingMembers.push(userL[userIndex].createdTeam[teamIndex].members[i])
     }
 
 }
 displayFunc()
 
-
+console.log(showingMembers)
 let addQuestFunc = () => {
     let userL = localStorage.getItem("userObjLocal");
     userL = JSON.parse(userL);
@@ -77,11 +104,12 @@ let deleteQuest = (id, e) => {
 
     userL[userIndex].createdTeam[teamIndex].questions.splice(id, 1);
     localStorage.setItem("userObjLocal", JSON.stringify(userL))
+
 }
 
 let displayQuestFunc = () => {
     questionUl.innerHTML = ""
-    
+
     let userL = localStorage.getItem("userObjLocal");
     userL = JSON.parse(userL);
     let userIndex = localStorage.getItem("userIndex");
@@ -95,17 +123,71 @@ let displayQuestFunc = () => {
     //     userL[userIndex].createdTeam[teamIndex].questions = []
     // }else{
 
-        console.log(userL[userIndex].createdTeam[teamIndex])
-        if(userL[userIndex].createdTeam[teamIndex].questions){
-            
-            for (let i = 0; i < userL[userIndex].createdTeam[teamIndex].questions.length; i++) {
-                questionUl.innerHTML += `
+    // console.log(userL[userIndex].createdTeam[teamIndex])
+
+    for (let i = 0; i < userL[userIndex].createdTeam[teamIndex].questions.length; i++) {
+        questionUl.innerHTML += `
                 <li id="${i}" class="list-group-item"><div>${userL[userIndex].createdTeam[teamIndex].questions[i]}</div><div><i id="${i}" onclick="deleteQuest(this.id,this)" class="bi bi-trash"></i></div></li>`
-            }
-        }
-    // }
+    }
+
 
     console.log(userL[userIndex].createdTeam[teamIndex].questions)
 
 }
+
+let addMembersFunc = () => {
+    refresh()
+
+}
+
+// function showing useres and add them
+let addMemberFunc = (e, eId) => {
+    let userL = localStorage.getItem("userObjLocal");
+    userL = JSON.parse(userL);
+    let userIndex = localStorage.getItem("userIndex");
+    userIndex = JSON.parse(userIndex);
+
+    let teamIndex = localStorage.getItem("teamIndex");
+    teamIndex = JSON.parse(teamIndex);
+    console.log(teamIndex);
+    e.remove()
+    arrForMember.push(userL[eId].name);
+
+    userL[userIndex].createdTeam[teamIndex].members.push(userL[eId].name);
+    console.log(userL);
+    localStorage.setItem("userObjLocal", JSON.stringify(userL))
+}
+let addMembers = () => {
+    // getting main user's data from local storage
+    let userL = localStorage.getItem("userObjLocal");
+    userL = JSON.parse(userL);
+
+    
+    for (let i = 0; i < userL.length; i++) {
+
+        membersUl.innerHTML += `
+        <li class="membersLi2" onclick="addMemberFunc(this,this.id)"  id="${i}">${userL[i].name}</li>`
+        for (let s = 0; s < membersLi.length; s++) {
+            if (membersLi2[i].innerText == membersLi[s].innerText) {
+                membersLi2[i].style.display = "none"
+            }
+        }
+    }
+
+    // console.log(membersLi[0].innerHTML)
+
+}
+addMembers()
+
+
+
+
+
+
+
+
+
+
+
+
 displayQuestFunc()

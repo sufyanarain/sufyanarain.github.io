@@ -101,7 +101,6 @@ let teamsDecet = (id,e)=>{
 
 createTeam.addEventListener('click', takeUserInput)
 let displayFunc = () => {
-    // setting a condition if uset teams object is empty
 
     // getting main user's data from local storage
     teamsDiv.innerHTML = ""

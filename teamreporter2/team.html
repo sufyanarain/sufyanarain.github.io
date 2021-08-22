@@ -33,7 +33,7 @@
                 </ul>
             </div>
         </div>
-        
+
     </nav>
     <!-- ************* end navbar ****************** -->
 
@@ -45,8 +45,7 @@
 
         <hr>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <!-- <i class="bi bi-plus"></i> -->
             Add Question
         </button>
@@ -60,21 +59,61 @@
 
             <ul id="questionUl" class="list-group">
                 <!-- <li class="list-group-item">Cras justo odio <button class="btn btn-primary">Delete</button></li> -->
-                
-              </ul>
+
+            </ul>
         </div>
 
-          <!-- teamsMembers -->
-          <hr>
-          <div class="memberHead">
-              <h4>Members :</h4>
-          </div>
-          <div >
-              <ul id="teamMembers">
-                  <!-- <li>user1</li>
+
+        <!-- Modal for add members-->
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h5 id="addMembersHead" class="mt-2">Add Members</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- input box -->
+
+                        <!-- <hr>
+                    <div>
+                        <ul id="selectedMembers">
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div> -->
+                        <div class="mt-3">
+                            <ul class="membersUl" id="membersUl">
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="addMembers" onclick="addMembersFunc()" type="button" class="btn btn-primary"
+                            data-bs-dismiss="modal">Add</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- teamsMembers -->
+        <hr>
+        <div class="memberHead">
+            <!-- Button trigger modal -->
+            <button id="modalBBtn" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal1">
+                Add Members</i>
+            </button>
+            <h4>Members :</h4>
+        </div>
+        <div>
+            <ul id="teamMembers">
+                <!-- <li>user1</li>
                   <li>user2</li> -->
-              </ul>
-          </div>
+            </ul>
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
