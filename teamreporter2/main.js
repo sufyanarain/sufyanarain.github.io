@@ -135,13 +135,13 @@ let displayFunc = () => {
         <div id="${i}" onclick="teamsDecet(this.id,this)" class="card-body">
             <h5>Team Name : <span id="teamSpan">${createdObj[i].teamName}</span></h5>
             <div class="membersDiv container">members : <span>${membersArr}</span></div>
+            <button type="button" id="${i}" onclick="teamsDecet(this.id,this)" class="btn btn-dark">
+                See more details
+            </button>
             
         </div>`
     }
 
-    // <button type="button" id="${i}" onclick="deleteTeamFunc(this.id)" class="btn btn-dark">
-    //     Delete Team
-    // </button>
     // resetting the input value
     teamName.value = "";
     // memberEmail.value = "";

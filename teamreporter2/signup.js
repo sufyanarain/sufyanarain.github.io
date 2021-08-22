@@ -262,8 +262,9 @@ class AddUserData {
     }
 
     // creating object after validating
+    
     createObj() {
-        let data1 = new UserObj(InputUser.value, InputEmail.value, InputPassword1.value);
+        let data1 = new UserObj(InputUser.value.toUpperCase(), InputEmail.value, InputPassword1.value);
         return data1
 
     }

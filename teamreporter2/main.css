@@ -27,12 +27,15 @@ Border-radius : 6px;
     margin: 10px;
     text-transform: uppercase;
     color: rgb(63, 63, 63);
+    padding: 18px 8px !important;
+    /* background-color: rgb(184, 35, 35); */
     
 }
 
 .card-body button{
     margin-top: 10px;
     font-weight: 500;
+    margin-left: 10px;
 }
 
 .card-body button:hover{
@@ -177,6 +180,7 @@ Border-radius : 6px;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
+        text-transform: uppercase;
         
     }
 
@@ -191,4 +195,16 @@ Border-radius : 6px;
     #membersUl{
         margin-left: -35px;
     }
+
+    #teamSpan{
+        color: black;
+        /* font-weight: 500; */
+        font-size: 20px;
+    }
+
+    .card-body h5{
+        font-size: 18px;
+    }
+    
+    
   }

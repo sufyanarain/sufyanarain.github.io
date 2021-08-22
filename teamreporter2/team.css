@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
     user-select: none;
 
 }
@@ -144,11 +144,13 @@ padding: 4px 7px;
     }
 
     #teamMembers li{
-        width: 40vw;
+        /* width: 40vw; */
+        /* font-weight: 500; */
+        font-size: 18px;
     }
 
     .bi-x-circle-fill {
-        margin-right: -10px;
+        /* margin-right: -10px; */
         /* background-color: rgb(170, 71, 71); */
     }
 
