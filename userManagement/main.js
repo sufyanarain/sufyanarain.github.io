@@ -41,7 +41,6 @@ if (!loginUsrObj) {
 
 
     // getting data from local storage
-    console.log(userData)
     var userData = localStorage.getItem("userLocal1");
     if (userData === null) {
         var userData = []

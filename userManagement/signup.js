@@ -121,7 +121,6 @@ signUp.addEventListener('click', function () {
 
         // pushing data to local storage
         localStorage.setItem("userLocal1", JSON.stringify(arr1))
-        // console.log(localStorage.getItem("userLocal"))
         
             swal({
                 title: "Account Created",
