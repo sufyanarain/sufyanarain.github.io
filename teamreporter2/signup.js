@@ -176,6 +176,7 @@ let InputPassword2 = document.getElementById("InputPassword2");
 let submit = document.getElementById("submit")
 let alertDiv = document.getElementById("alertDiv");
 let subForm = document.getElementById("subForm");
+let LoginHelp = document.getElementById("LoginHelp");
 
 
 
@@ -190,6 +191,8 @@ class UserObj {
 }
 
 
+
+
 // created class for validating and clearing methods
 class AddUserData {
     // validating user's input
@@ -202,6 +205,23 @@ class AddUserData {
         }
         else {
             InputUser.style.borderColor = "#ccc";
+        }
+
+        let usersObj = localStorage.getItem("userObjLocal");
+        usersObj = JSON.parse(usersObj);
+
+        if (usersObj) {
+            for (let i = 0; i < usersObj.length; i++) {
+                if (usersObj[i].name === InputUser.value.toUpperCase()) {
+                    InputUser.style.borderColor = "red";
+                    userCond = false;
+                    LoginHelp.innerHTML = `this username is not availabe,try another`
+                }
+            }
+            if(userCond === true){
+                InputUser.style.borderColor = "#ccc";
+                LoginHelp.innerHTML = ``
+            }
         }
 
         if (InputEmail.value === "") {
@@ -262,7 +282,7 @@ class AddUserData {
     }
 
     // creating object after validating
-    
+
     createObj() {
         let data1 = new UserObj(InputUser.value.toUpperCase(), InputEmail.value, InputPassword1.value);
         return data1
@@ -295,9 +315,9 @@ submit.addEventListener('click', event => {
         } else {
             arr = JSON.parse(getfromLocal);
         }
-        
+
         arr.push(userObbb)
-        localStorage.setItem("userObjLocal",JSON.stringify(arr))
+        localStorage.setItem("userObjLocal", JSON.stringify(arr))
 
         console.log(getfromLocal)
         user.clear()

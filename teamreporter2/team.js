@@ -12,8 +12,8 @@ let arrForMember = [];
 let showingMembers = [];
 
 // getting data from localStorage
-let curruntUser = localStorage.getItem("userObjLocal");
-curruntUser = JSON.parse(curruntUser);
+let usersObj = localStorage.getItem("userObjLocal");
+usersObj = JSON.parse(usersObj);
 
 let userIndex = localStorage.getItem("userIndex");
 userIndex = JSON.parse(userIndex);
@@ -21,7 +21,23 @@ userIndex = JSON.parse(userIndex);
 let teamIndex = localStorage.getItem("teamIndex");
 teamIndex = JSON.parse(teamIndex);
 
-let curruntTeam = curruntUser[userIndex].createdTeam[teamIndex];
+let teamsArr = [];
+
+for(let i = 0;i<usersObj.length;i++){
+    teamsArr.push(usersObj[i].createdTeam)
+}
+
+console.log(teamsArr)
+
+
+
+
+
+
+
+
+
+let curruntTeam = usersObj[userIndex].createdTeam[teamIndex];
 // function for reloading page
 function refresh() {
     setTimeout(function () {
@@ -38,7 +54,7 @@ let deletMemberFunc = (e, eId) => {
     curruntTeam.members.splice(eId, 1)
 
     // setting data to local storage after deleting member
-    localStorage.setItem("userObjLocal", JSON.stringify(curruntUser))
+    localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
     refresh()
 }
 
@@ -71,7 +87,7 @@ let addQuestFunc = () => {
     // setting question in  users object 
     curruntTeam.questions = questArr;
     // updating users object after adding question
-    localStorage.setItem("userObjLocal", JSON.stringify(curruntUser))
+    localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
 
     // removing question from input afer adding
     questionInp.value = ""
@@ -88,7 +104,7 @@ let deleteQuest = (id, e) => {
     // deleting question from users object
     curruntTeam.questions.splice(id, 1);
     // setting localstorage updated object after deleting question
-    localStorage.setItem("userObjLocal", JSON.stringify(curruntUser))
+    localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
 
 }
 
@@ -114,19 +130,19 @@ let addMemberFunc = (e, eId) => {
     // removing members from dom after clicking on members
     e.remove()
     // pushing members after clicking on member
-    arrForMember.push(curruntUser[eId].name);
+    arrForMember.push(usersObj[eId].name);
 
     // setting data in object after adding
-    curruntTeam.members.push(curruntUser[eId].name);
+    curruntTeam.members.push(usersObj[eId].name);
     // setting data to localstorage after updating members
-    localStorage.setItem("userObjLocal", JSON.stringify(curruntUser))
+    localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
 }
 
 // showing members in modal box
 let addMembers = () => {
-    for (let i = 0; i < curruntUser.length; i++) {
+    for (let i = 0; i < usersObj.length; i++) {
         membersUl.innerHTML += `
-        <li class="membersLiModal" onclick="addMemberFunc(this,this.id)"  id="${i}">${curruntUser[i].name}</li>`
+        <li class="membersLiModal" onclick="addMemberFunc(this,this.id)"  id="${i}">${usersObj[i].name}</li>`
 
         for (let s = 0; s < membersLi.length; s++) {
             if (membersLiModal[i].innerText == membersLi[s].innerText) {
@@ -141,9 +157,9 @@ addMembers()
 // delete team function
 let deleteTeamFunc = () => {
     // getting index from id and deleting from object
-    curruntUser[userIndex].createdTeam.splice(teamIndex, 1)
+    usersObj[userIndex].createdTeam.splice(teamIndex, 1)
     // setting deleted item from object and setting it to main object
-    localStorage.setItem("userObjLocal", JSON.stringify(curruntUser));
+    localStorage.setItem("userObjLocal", JSON.stringify(usersObj));
     // changing window location
     window.location = "main.html"
 }
