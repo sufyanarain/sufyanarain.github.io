@@ -67,7 +67,7 @@ let addQuestFunc = () => {
 
         questArr = curruntTeam.questions;
     }
-    questArr.push(questionInp.value)
+    questArr.push({q : questionInp.value,ans: ""})
     // setting question in  users object 
     curruntTeam.questions = questArr;
     // updating users object after adding question
@@ -98,7 +98,7 @@ let displayQuestFunc = () => {
     // loop for displaying question
     for (let i = 0; i < curruntTeam.questions.length; i++) {
         questionUl.innerHTML += `
-                <li id="${i}" class="list-group-item"><div>${curruntTeam.questions[i]}</div><div><i id="${i}" onclick="deleteQuest(this.id,this)" class="bi bi-trash"></i></div></li>`
+                <li id="${i}" class="list-group-item"><div>${curruntTeam.questions[i].q}</div><div><i id="${i}" onclick="deleteQuest(this.id,this)" class="bi bi-trash"></i></div></li>`
     }
 
 }
