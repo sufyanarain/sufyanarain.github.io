@@ -202,7 +202,7 @@ let memberDecet = (id, e) => {
     // console.log(id,e)
 }
 
-
+localStorage.clear()
 let teamsYouPartDiv = document.getElementById("teamsYouPartDiv");
 
 let teamsPrt = usersObj[index].partTeam;
