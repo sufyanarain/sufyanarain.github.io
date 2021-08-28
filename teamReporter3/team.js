@@ -111,9 +111,9 @@ function refresh() {
 }
 
 
+let deleteMemIndex;
 let deletePartTeamFunc = (index) => {
-    let deleteMemIndex;
-    
+
     for (let i = 0; i < usersObj.length; i++) {
         if (usersObj[i].name == curruntTeam.members[index]) {
             deleteMemIndex = i;
@@ -122,8 +122,8 @@ let deletePartTeamFunc = (index) => {
     }
 
     for (let j = 0; j < usersObj[deleteMemIndex].partTeam.length; j++) {
-        if( usersObj[deleteMemIndex].partTeam[j].teamKey == curruntTeam.teamKey){
-            // usersObj[deleteMemIndex].partTeam.splice(j,1)
+        if (usersObj[deleteMemIndex].partTeam[j].teamKey == curruntTeam.teamKey) {
+            usersObj[deleteMemIndex].partTeam.splice(j, 1)
             console.log("key matched")
         }
     }
@@ -239,19 +239,24 @@ let addMemberFunc = (e, eId) => {
 }
 
 // showing members in modal box
-let addMembers = () => {
+let modalBBtn = document.getElementById("modalBBtn");
+
+var addMembers = () => {
     for (let i = 0; i < usersObj.length; i++) {
         membersUl.innerHTML += `
         <li class="membersLiModal" onclick="addMemberFunc(this,this.id)"  id="${i}">${usersObj[i].name}</li>`
-
+        
+        if (usersObj[i].name == usersObj[userIndex].name) {
+            console.log(membersLiModal[i].innerText, usersObj[userIndex].name)
+            membersLiModal[i].style.display = "none"
+        }
         for (let s = 0; s < membersLi.length; s++) {
+            
             if (membersLiModal[i].innerText == membersLi[s].innerText) {
                 membersLiModal[i].style.display = "none"
             }
-            if (membersLiModal[i].innerText == usersObj[userIndex].name) {
-                membersLiModal[i].style.display = "none"
-            }
         }
+        
     }
 }
 addMembers()
@@ -298,13 +303,12 @@ var deletePartTeam = () => {
                 }
             }
 
-            
+
             // if (deleteMemFlag) {
-                //     console.log(usersObj[deleteMemId])
-                //     usersObj[i].partTeam.splice(deleteMemId, 1)
-                //     console.log("deleteMemFlag hitted")
-                // }
-            }
+            //     console.log(usersObj[deleteMemId])
+            //     usersObj[i].partTeam.splice(deleteMemId, 1)
+            //     console.log("deleteMemFlag hitted")
+            // }
         }
         if (delTeamFlag) {
             console.log("delTeamFlag hitted")
@@ -313,6 +317,7 @@ var deletePartTeam = () => {
 
             console.log("pushed from found cundition")
         }
+    }
     localStorage.setItem("userObjLocal", JSON.stringify(usersObj));
 }
 

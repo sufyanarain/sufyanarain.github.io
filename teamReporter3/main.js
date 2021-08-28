@@ -35,6 +35,16 @@ if (getUserFromLocal) {
 let usersObj = localStorage.getItem("userObjLocal");
 usersObj = JSON.parse(usersObj);
 
+// loop for finding current user and index
+for (let i = 0; i < usersObj.length; i++) {
+    if (usersObj[i].name === getUserFromLocal.name) {
+        index = i;
+        teamsObj = usersObj[i].createdTeam;
+    }
+}
+
+
+
 function refresh() {
     setTimeout(function () {
         location.reload()
@@ -95,13 +105,10 @@ let teamsDecet = (id, e) => {
 
 createTeam.addEventListener('click', takeUserInput)
 let displayFunc = () => {
-    // loop for finding current element and index
-    for (let i = 0; i < usersObj.length; i++) {
-        if (usersObj[i].name === getUserFromLocal.name) {
-            index = i;
-            teamsObj = usersObj[i].createdTeam;
-        }
-    }
+    
+
+
+    
 
 
     teamsDiv.innerHTML = ""
@@ -182,6 +189,68 @@ let addMoreFunc = (e) => {
 //     // updating display function to update elemnts after deleting
 //     displayFunc()
 // }
+
+
+
+
+// teams you are part 
+let memberDecet = (id, e) => {
+    localStorage.setItem("userIndex", JSON.stringify(index));
+    localStorage.setItem("teamIndex", JSON.stringify(id));
+    window.location = "member.html"
+
+    // console.log(id,e)
+}
+
+
+let teamsYouPartDiv = document.getElementById("teamsYouPartDiv");
+
+let teamsPrt = usersObj[index].partTeam;
+if(teamsPrt){
+    let currentUser = usersObj[index];
+    let partTeamMember = "";
+    
+    let partTeamDisplay = ()=>{
+        for (let i = 0; i < teamsPrt.length; i++) {
+            partTeamMember = ""
+            for (let w = 0; w < teamsPrt[i].members.length; w++) {
+    
+                partTeamMember += `<p>${teamsPrt[i].members[w]}</p>`
+            }
+    
+            // setting data to dom by loop
+            teamsYouPartDiv.innerHTML += `
+            <div id="${i}" onclick="memberDecet(this.id,this)" class="card-body">
+                <h5>Team Name : <span id="teamSpan">${teamsPrt[i].teamName}</span></h5>
+                <div class="membersDiv container">members : <span>${partTeamMember}</span></div>
+                <button type="button" id="${i}" onclick="memberDecet(this.id,this)" class="btn btn-dark">
+                    See more details
+                </button>
+                
+            </div>`
+        }
+    }
+    
+    
+    partTeamDisplay()
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // logout

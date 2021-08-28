@@ -183,12 +183,13 @@ let LoginHelp = document.getElementById("LoginHelp");
 
 // created class for user's input
 class UserObj {
-    constructor(name, email, password,userKey,partTeam) {
+    constructor(name, email, password,userKey,partTeam,createdTeam) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.userKey = userKey;
         this.partTeam = partTeam;
+        this.createdTeam = createdTeam;
     }
 }
 
@@ -287,7 +288,7 @@ class AddUserData {
     // creating object after validating
 
     createObj() {
-        let data1 = new UserObj(InputUser.value.toUpperCase(), InputEmail.value, InputPassword1.value,new Date().getTime(),[]);
+        let data1 = new UserObj(InputUser.value.toUpperCase(), InputEmail.value, InputPassword1.value,new Date().getTime(),[],[]);
         return data1
 
     }
