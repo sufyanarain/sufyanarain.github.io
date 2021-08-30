@@ -105,10 +105,10 @@ let teamsDecet = (id, e) => {
 
 createTeam.addEventListener('click', takeUserInput)
 let displayFunc = () => {
-    
 
 
-    
+
+
 
 
     teamsDiv.innerHTML = ""
@@ -123,6 +123,8 @@ let displayFunc = () => {
             if (membersModal[i].innerText == usersObj[index].name) {
                 membersModal[i].style.display = "none"
             }
+
+
         }
 
 
@@ -133,9 +135,16 @@ let displayFunc = () => {
     for (let i = 0; i < teamsObj.length; i++) {
         membersArr = ""
         for (let w = 0; w < teamsObj[i].members.length; w++) {
-
             membersArr += `<p>${teamsObj[i].members[w]}</p>`
+            if (w > 0) {
+                break;
+            }
         }
+        if (teamsObj[i].members.length > 1) {
+
+            membersArr += `<p>AND ${teamsObj[i].members.length - 2} OTHERS</p>`
+        }
+
 
         // setting data to dom by loop
         teamsDiv.innerHTML += `
@@ -205,18 +214,27 @@ let memberDecet = (id, e) => {
 let teamsYouPartDiv = document.getElementById("teamsYouPartDiv");
 
 let teamsPrt = usersObj[index].partTeam;
-if(teamsPrt){
+if (teamsPrt) {
     let currentUser = usersObj[index];
     let partTeamMember = "";
-    
-    let partTeamDisplay = ()=>{
+
+    let partTeamDisplay = () => {
         for (let i = 0; i < teamsPrt.length; i++) {
             partTeamMember = ""
             for (let w = 0; w < teamsPrt[i].members.length; w++) {
-    
-                partTeamMember += `<p>${teamsPrt[i].members[w]}</p>`
+                if (teamsPrt[i].members[w] == currentUser.name) {
+                    teamsPrt[i].members[w] = "YOU"
+                }
+                partTeamMember += `<p>${teamsPrt[i].members[w]}</p>` 
+                // membersArr += `<p>${teamsObj[i].members[w]}</p>`
+                if (w > 0) {
+                    break;
+                }
             }
-    
+            if (teamsPrt[i].members.length > 1) {
+
+                partTeamMember += `<p>AND ${teamsPrt[i].members.length - 2} OTHERS</p>`
+            }
             // setting data to dom by loop
             teamsYouPartDiv.innerHTML += `
             <div id="${i}" onclick="memberDecet(this.id,this)" class="card-body">
@@ -229,8 +247,8 @@ if(teamsPrt){
             </div>`
         }
     }
-    
-    
+
+    // console.log(currentUser)
     partTeamDisplay()
 
 }

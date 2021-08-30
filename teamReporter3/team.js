@@ -291,9 +291,9 @@ var deletePartTeam = () => {
 
                 for (let k = 0; k < usersObj[i].partTeam.length; k++) {
                     if (usersObj[i].partTeam[k].teamKey == curruntTeam.teamKey) {
-                        usersObj[i].partTeam.splice(k, 1, curruntTeam)
+                        usersObj[i].partTeam.splice(k, 1)
                         curruntpartIndex = k;
-                        teamFound = false;
+                        // teamFound = false;
                     }
                 }
 
