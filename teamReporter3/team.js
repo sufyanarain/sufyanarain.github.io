@@ -210,11 +210,14 @@ let deleteQuest = (id, e) => {
 
 // function for displaying questions
 let displayQuestFunc = () => {
-    questionUl.innerHTML = ""
-    // loop for displaying question
-    for (let i = 0; i < curruntTeam.questions.length; i++) {
-        questionUl.innerHTML += `
-                <li id="${i}" class="list-group-item"><div>${curruntTeam.questions[i].q}</div><div><i id="${i}" onclick="deleteQuest(this.id,this)" class="bi bi-trash"></i></div></li>`
+    if(curruntTeam.questions){
+        questionUl.innerHTML = ""
+        // loop for displaying question
+        for (let i = 0; i < curruntTeam.questions.length; i++) {
+            questionUl.innerHTML += `
+                    <li id="${i}" class="list-group-item"><div>${curruntTeam.questions[i].q}</div><div><i id="${i}" onclick="deleteQuest(this.id,this)" class="bi bi-trash"></i></div></li>`
+        }
+
     }
 
 }

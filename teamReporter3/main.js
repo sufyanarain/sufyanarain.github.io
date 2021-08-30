@@ -132,31 +132,37 @@ let displayFunc = () => {
 
 
     // console.log(teamsObj)
-    for (let i = 0; i < teamsObj.length; i++) {
-        membersArr = ""
-        for (let w = 0; w < teamsObj[i].members.length; w++) {
-            membersArr += `<p>${teamsObj[i].members[w]}</p>`
-            if (w > 0) {
-                break;
+    if (teamsObj.length == 0) {
+        teamsDiv.innerHTML = `<h5>you have not created any team,click on plus button and create a new team</h5> <hr>`
+    } else {
+        for (let i = 0; i < teamsObj.length; i++) {
+            membersArr = ""
+            for (let w = 0; w < teamsObj[i].members.length; w++) {
+                membersArr += `<p>${teamsObj[i].members[w]}</p>`
+                if (w > 0) {
+                    break;
+                }
             }
+            if (teamsObj[i].members.length > 1) {
+
+                membersArr += `<p>AND ${teamsObj[i].members.length - 2} OTHERS</p>`
+            }
+
+
+            // setting data to dom by loop
+            teamsDiv.innerHTML += `
+            <div id="${i}" onclick="teamsDecet(this.id,this)" class="card-body">
+                <h5>Team Name : <span id="teamSpan">${teamsObj[i].teamName}</span></h5>
+                <div class="membersDiv container">members : <span>${membersArr}</span></div>
+                <button type="button" id="${i}" onclick="teamsDecet(this.id,this)" class="btn btn-dark">
+                    See more details
+                </button>
+                
+            </div>`
         }
-        if (teamsObj[i].members.length > 1) {
 
-            membersArr += `<p>AND ${teamsObj[i].members.length - 2} OTHERS</p>`
-        }
-
-
-        // setting data to dom by loop
-        teamsDiv.innerHTML += `
-        <div id="${i}" onclick="teamsDecet(this.id,this)" class="card-body">
-            <h5>Team Name : <span id="teamSpan">${teamsObj[i].teamName}</span></h5>
-            <div class="membersDiv container">members : <span>${membersArr}</span></div>
-            <button type="button" id="${i}" onclick="teamsDecet(this.id,this)" class="btn btn-dark">
-                See more details
-            </button>
-            
-        </div>`
     }
+
 
     // resetting the input value
     teamName.value = "";
@@ -225,7 +231,7 @@ if (teamsPrt) {
                 if (teamsPrt[i].members[w] == currentUser.name) {
                     teamsPrt[i].members[w] = "YOU"
                 }
-                partTeamMember += `<p>${teamsPrt[i].members[w]}</p>` 
+                partTeamMember += `<p>${teamsPrt[i].members[w]}</p>`
                 // membersArr += `<p>${teamsObj[i].members[w]}</p>`
                 if (w > 0) {
                     break;
@@ -233,7 +239,7 @@ if (teamsPrt) {
             }
             if (teamsPrt[i].members.length > 1) {
 
-                partTeamMember += `<p>AND ${teamsPrt[i].members.length - 2} OTHERS</p>`
+                partTeamMember += `<p>& ${teamsPrt[i].members.length - 2} OTHERS</p>`
             }
             // setting data to dom by loop
             teamsYouPartDiv.innerHTML += `
