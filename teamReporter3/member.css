@@ -65,13 +65,13 @@ padding: 4px 7px;
     justify-content: space-between;
 }
 
-#answer{
+.answer{
     margin: 10px 0px;
     border: none;
     border-bottom: 1px solid #ccc !important;
 }
 
-#answer textarea:focus, 
+textarea:focus, 
 textarea.form-control:focus, 
 input.form-control:focus, 
 input[type=text]:focus, 

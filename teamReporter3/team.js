@@ -291,7 +291,6 @@ var deletePartTeam = () => {
             // console.log(usersObj[i], teamMemberArr[j])
             if (usersObj[i].name == teamMemberArr[j]) {
                 // console.log("matched")
-
                 for (let k = 0; k < usersObj[i].partTeam.length; k++) {
                     if (usersObj[i].partTeam[k].teamKey == curruntTeam.teamKey) {
                         usersObj[i].partTeam.splice(k, 1)
@@ -299,33 +298,31 @@ var deletePartTeam = () => {
                         // teamFound = false;
                     }
                 }
-
-
                 if (teamFound) {
                     usersObj[i].partTeam.push(curruntTeam);
                 }
+                if (delTeamFlag) {
+                    usersObj[i].partTeam.splice(curruntpartIndex, 1)
+                    console.log( usersObj[i].name)
+                }
             }
-
-
-            // if (deleteMemFlag) {
-            //     console.log(usersObj[deleteMemId])
-            //     usersObj[i].partTeam.splice(deleteMemId, 1)
-            //     console.log("deleteMemFlag hitted")
-            // }
         }
-        if (delTeamFlag) {
-            console.log("delTeamFlag hitted")
-            usersObj[i].partTeam.splice(curruntpartIndex, 1)
-            usersObj[userIndex].createdTeam.splice(teamIndex, 1)
+    }
 
-            console.log("pushed from found cundition")
-        }
+    if (delTeamFlag) {
+        usersObj[userIndex].createdTeam.splice(teamIndex, 1)
     }
     localStorage.setItem("userObjLocal", JSON.stringify(usersObj));
 }
 
 deletePartTeam()
 
+
+
+
+let getAnswer = ()=>{
+    
+}
 
 
 

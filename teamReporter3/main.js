@@ -55,9 +55,11 @@ let takeUserInput = () => {
     let selectedCategory = selectCategory.options[selectCategory.selectedIndex].value;
     let team = {
         admin: getUserFromLocal.email,
+        adminName:getUserFromLocal.name,
         teamName: teamName.value,
         category: selectedCategory,
         members: arrForMember,
+        reports:{},
         teamKey: new Date().getTime()
     }
     refresh()
@@ -143,7 +145,7 @@ let displayFunc = () => {
                     break;
                 }
             }
-            if (teamsObj[i].members.length > 1) {
+            if (teamsObj[i].members.length > 2) {
 
                 membersArr += `<p>AND ${teamsObj[i].members.length - 2} OTHERS</p>`
             }
@@ -237,13 +239,14 @@ if (teamsPrt) {
                     break;
                 }
             }
-            if (teamsPrt[i].members.length > 1) {
+            if (teamsPrt[i].members.length > 2) {
 
                 partTeamMember += `<p>& ${teamsPrt[i].members.length - 2} OTHERS</p>`
             }
             // setting data to dom by loop
             teamsYouPartDiv.innerHTML += `
             <div id="${i}" onclick="memberDecet(this.id,this)" class="card-body">
+                <h6>admin : ${teamsPrt[i].adminName}</h6/>
                 <h5>Team Name : <span id="teamSpan">${teamsPrt[i].teamName}</span></h5>
                 <div class="membersDiv container">members : <span>${partTeamMember}</span></div>
                 <button type="button" id="${i}" onclick="memberDecet(this.id,this)" class="btn btn-dark">

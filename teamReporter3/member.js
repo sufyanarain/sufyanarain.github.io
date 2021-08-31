@@ -69,6 +69,32 @@ displayFunc()
 // function for deleting questions
 
 
+
+
+
+
+console.log(curruntTeam.questions[0])
+let answer = (element, Eid) => {
+    curruntTeam.questions[Eid].ans = element.value;
+    console.log(element.value)
+
+
+    console.log(curruntTeam.questions)
+}
+
+let submit = () => {
+    // curruntTeam.questions[Eid].ans = element.value;
+    for (let i = 0; i < usersObj.length; i++) {
+        for (let j = 0; j < usersObj[i].createdTeam.length; j++) {
+            if(curruntTeam.admin == usersObj[i].createdTeam[j].admin){
+                console.log(curruntTeam.admin,usersObj[i].createdTeam[j].admin);
+                usersObj[i].createdTeam[j].reports.push(curruntTeam.questions)
+            }
+        }
+    }
+    localStorage.setItem("userObjLocal",JSON.stringify(usersObj))
+    // console.log(curruntTeam.admin)
+}
 // function for displaying questions
 let displayQuestFunc = () => {
     questionUl.innerHTML = ""
@@ -76,9 +102,14 @@ let displayQuestFunc = () => {
     for (let i = 0; i < curruntTeam.questions.length; i++) {
         questionUl.innerHTML += `
                 <li id="${i}" class="list-group-item"><div>Q : ${curruntTeam.questions[i].q}</div>
-                <div><input type="email" value="${curruntTeam.questions[i].ans}" class="form-control" id="answer" placeholder="ANSWER"></div></li>`
+                <div><input type="email" onblur="answer(this,this.id)" value="${curruntTeam.questions[i].ans}" class="form-control answer" id="${i}" placeholder="ANSWER"></div></li>`
     }
 
 }
 
 displayQuestFunc()
+
+
+
+
+
