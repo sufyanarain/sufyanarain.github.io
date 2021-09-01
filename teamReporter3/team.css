@@ -207,5 +207,23 @@ padding: 4px 7px;
         margin-left: 8px;
     }
 
+    .header{
+        font-size: 16px !important;
+        /* background-color: aqua; */
+    }
+    /* #settings{
+        border-bottom: 1px solid rgb(17, 17, 17);
+    
+    } */
+
+    .header:hover{
+        border-bottom: 1px solid rgb(17, 17, 17);
+    }
+    
+    #settings{
+        border-bottom: 1px solid rgb(17, 17, 17);
+    
+    }
+
 
 }

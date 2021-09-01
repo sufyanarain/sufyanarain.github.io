@@ -11,7 +11,6 @@
     font-weight: 400;
     line-height: 130%;
 }
-
 .mainHead{
     display: flex;
     justify-content: space-around;
@@ -19,12 +18,19 @@
     padding-top: 10px;
     margin-bottom: -10px;
     cursor: pointer;
-
+    font-size: 18px;
+    font-weight: 500;
+    /* background: #000; */
+    /* color: black !important; */
+    
     /* background-color: rgb(116, 68, 68); */
 }
 
+.mainHead a{
+    color: black;
+}
+
 .header{
-    /* background-color: rgb(136, 74, 74); */
     width: 110px;
     height: 35px;
     /* padding-bottom: 20px !important; */
@@ -33,10 +39,36 @@
 }
 
 .header:hover{
-    border-bottom: 3px solid rgb(33, 106, 223);
+    border-bottom: 3px solid rgb(17, 17, 17);
 }
 
-#reports{
-    border-bottom: 3px solid rgb(33, 106, 223);
+/* #settings{
+    border-bottom: 3px solid rgb(17, 17, 17);
+
+} */
+
+@media screen and (max-width: 570px) {
+    *{
+        /* background-color: rgb(189, 95, 95); */
+    }
+
+    .header{
+        font-size: 16px !important;
+        /* background-color: aqua; */
+    }
+    /* #settings{
+        border-bottom: 1px solid rgb(17, 17, 17);
+    
+    } */
+
+    .header:hover{
+        border-bottom: 1px solid rgb(17, 17, 17);
+    }
+    
+    #reports{
+        border-bottom: 1px solid rgb(17, 17, 17);
+    
+    }
+
 
 }
