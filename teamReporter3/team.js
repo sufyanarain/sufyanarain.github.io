@@ -186,6 +186,7 @@ let addQuestFunc = () => {
     questArr.push({ q: questionInp.value, ans: "" })
     // setting question in  users object 
     curruntTeam.questions = questArr;
+    curruntTeam.reports = []
     // updating users object after adding question
     localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
 
@@ -210,7 +211,7 @@ let deleteQuest = (id, e) => {
 
 // function for displaying questions
 let displayQuestFunc = () => {
-    if(curruntTeam.questions){
+    if (curruntTeam.questions) {
         questionUl.innerHTML = ""
         // loop for displaying question
         for (let i = 0; i < curruntTeam.questions.length; i++) {
@@ -248,18 +249,18 @@ var addMembers = () => {
     for (let i = 0; i < usersObj.length; i++) {
         membersUl.innerHTML += `
         <li class="membersLiModal" onclick="addMemberFunc(this,this.id)"  id="${i}">${usersObj[i].name}</li>`
-        
+
         if (usersObj[i].name == usersObj[userIndex].name) {
             console.log(membersLiModal[i].innerText, usersObj[userIndex].name)
             membersLiModal[i].style.display = "none"
         }
         for (let s = 0; s < membersLi.length; s++) {
-            
+
             if (membersLiModal[i].innerText == membersLi[s].innerText) {
                 membersLiModal[i].style.display = "none"
             }
         }
-        
+
     }
 }
 addMembers()
@@ -303,7 +304,7 @@ var deletePartTeam = () => {
                 }
                 if (delTeamFlag) {
                     usersObj[i].partTeam.splice(curruntpartIndex, 1)
-                    console.log( usersObj[i].name)
+                    // console.log(usersObj[i].name);
                 }
             }
         }
@@ -320,8 +321,8 @@ deletePartTeam()
 
 
 
-let getAnswer = ()=>{
-    
+let getAnswer = () => {
+
 }
 
 

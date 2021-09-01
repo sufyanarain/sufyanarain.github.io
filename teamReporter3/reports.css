@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    list-style: none !important;
+}
+
+#reportsSec{
+    font-weight: 400;
+    line-height: 130%;
+}
+
+.mainHead{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    margin-bottom: -10px;
+    cursor: pointer;
+
+    /* background-color: rgb(116, 68, 68); */
+}
+
+.header{
+    /* background-color: rgb(136, 74, 74); */
+    width: 110px;
+    height: 35px;
+    /* padding-bottom: 20px !important; */
+    /* background-color: rgb(105, 54, 54); */
+    
+}
+
+.header:hover{
+    border-bottom: 3px solid rgb(33, 106, 223);
+}
+
+#reports{
+    border-bottom: 3px solid rgb(33, 106, 223);
+
+}

@@ -59,7 +59,7 @@ let takeUserInput = () => {
         teamName: teamName.value,
         category: selectedCategory,
         members: arrForMember,
-        reports:{},
+        reports:[],
         teamKey: new Date().getTime()
     }
     refresh()
@@ -100,7 +100,7 @@ let addMemberFunc = (e, eId, d) => {
 let teamsDecet = (id, e) => {
     localStorage.setItem("userIndex", JSON.stringify(index));
     localStorage.setItem("teamIndex", JSON.stringify(id));
-    window.location = "team.html"
+    window.location = "reports.html"
 
     // console.log(id,e)
 }

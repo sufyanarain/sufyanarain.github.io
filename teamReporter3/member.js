@@ -8,6 +8,7 @@ let teamMembers = document.getElementById("teamMembers");
 let membersUl = document.getElementById("membersUl");
 let membersLi = document.getElementsByClassName("membersLi");
 let membersLiModal = document.getElementsByClassName("membersLiModal");
+let submitBtn = document.getElementById("submitBtn");
 let arrForMember = [];
 let showingMembers = [];
 let delTeamFlag = false;
@@ -24,6 +25,8 @@ teamIndex = JSON.parse(teamIndex);
 
 let teamsArr = [];
 let newArr = []
+
+let curruntUsername = usersObj[userIndex].name;
 
 console.log(usersObj[userIndex].partTeam[teamIndex])
 
@@ -79,6 +82,7 @@ let answer = (element, Eid) => {
     console.log(element.value)
 
 
+    localStorage.setItem("userObjLocal",JSON.stringify(usersObj))
     console.log(curruntTeam.questions)
 }
 
@@ -86,15 +90,20 @@ let submit = () => {
     // curruntTeam.questions[Eid].ans = element.value;
     for (let i = 0; i < usersObj.length; i++) {
         for (let j = 0; j < usersObj[i].createdTeam.length; j++) {
-            if(curruntTeam.admin == usersObj[i].createdTeam[j].admin){
-                console.log(curruntTeam.admin,usersObj[i].createdTeam[j].admin);
-                usersObj[i].createdTeam[j].reports.push(curruntTeam.questions)
+            if (usersObj[i].createdTeam[j].admin == curruntTeam.admin) {
+                console.log(curruntTeam.admin, usersObj[i].createdTeam[j].admin);
+                usersObj[i].createdTeam[j].reports.push({ [curruntUsername]: curruntTeam.questions})
             }
         }
     }
-    localStorage.setItem("userObjLocal",JSON.stringify(usersObj))
+    // curruntTeam.questions.push()
+    curruntTeam.subBtnStatus = true;
+    localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
     // console.log(curruntTeam.admin)
+    submitBtn.disabled = true;
+    
 }
+submitBtn.disabled = curruntTeam.subBtnStatus;
 // function for displaying questions
 let displayQuestFunc = () => {
     questionUl.innerHTML = ""
@@ -102,7 +111,8 @@ let displayQuestFunc = () => {
     for (let i = 0; i < curruntTeam.questions.length; i++) {
         questionUl.innerHTML += `
                 <li id="${i}" class="list-group-item"><div>Q : ${curruntTeam.questions[i].q}</div>
-                <div><input type="email" onblur="answer(this,this.id)" value="${curruntTeam.questions[i].ans}" class="form-control answer" id="${i}" placeholder="ANSWER"></div></li>`
+                    <div><input type="email" onblur="answer(this,this.id)" value="${curruntTeam.questions[i].ans}" class="form-control answer" id="${i}" placeholder="ANSWER"></div>
+                </li>`
     }
 
 }
