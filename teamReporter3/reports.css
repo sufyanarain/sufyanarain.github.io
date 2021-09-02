@@ -7,9 +7,9 @@
     list-style: none !important;
 }
 
-/* #qA:nth-last-child(3){
-    font-weight: 500;
-} */
+#qA:nth-last-child(2n+3){
+    /* font-weight: 500; */
+}
 
 #reportsSec{
     font-weight: 400;
@@ -42,37 +42,14 @@
     
 }
 
-.header:hover{
-    border-bottom: 3px solid rgb(17, 17, 17);
-}
 
-#reports{
-    border-bottom: 3px solid rgb(17, 17, 17);
-
-}
 
 @media screen and (max-width: 570px) {
     *{
         /* background-color: rgb(189, 95, 95); */
     }
 
-    .header{
-        font-size: 16px !important;
-        /* background-color: aqua; */
-    }
-    #reports{
-        border-bottom: 1px solid rgb(17, 17, 17);
-    
-    }
-
-    .header:hover{
-        border-bottom: 1px solid rgb(17, 17, 17);
-    }
-    
-    #reports{
-        border-bottom: 1px solid rgb(17, 17, 17);
-    
-    }
+   
 
 
 }
