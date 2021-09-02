@@ -189,5 +189,10 @@ input[type=number]:focus,
         margin-left: 8px;
     }
 
+    #submitBtn{
+        width: 97%;
+        margin-left: 6px;
+    }
+
 
 }
