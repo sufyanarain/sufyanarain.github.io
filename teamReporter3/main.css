@@ -4,7 +4,11 @@
     box-sizing: border-box;
     user-select: none;
     text-transform: uppercase;
+    font-family: 'Roboto Mono', sans-serif;
+
 }
+
+
 
 #teamsDiv, #teamsYouPartDiv{
     border: none !important;

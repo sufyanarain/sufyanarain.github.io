@@ -7,9 +7,7 @@
     list-style: none !important;
 }
 
-#qA:nth-last-child(2n+3){
-    /* font-weight: 500; */
-}
+
 
 #reportsSec{
     font-weight: 400;
@@ -29,13 +27,15 @@
     
     /* background-color: rgb(116, 68, 68); */
 }
+.btn-outline-primary{
+    width: 300px !important;
+}
 
 .mainHead a{
     color: black;
 }
 
 .header{
-    width: 110px;
     height: 35px;
     /* padding-bottom: 20px !important; */
     /* background-color: rgb(105, 54, 54); */
