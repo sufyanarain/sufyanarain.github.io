@@ -22,6 +22,15 @@ userIndex = JSON.parse(userIndex);
 let teamIndex = localStorage.getItem("teamIndex");
 teamIndex = JSON.parse(teamIndex);
 
+// getting login data from local storage
+let getUserFromLocal = localStorage.getItem("userObjLoginLocal");
+getUserFromLocal = JSON.parse(getUserFromLocal);
+if (getUserFromLocal) {
+    console.log(getUserFromLocal)
+} else {
+    window.location = 'index.html'
+}
+
 let teamsArr = [];
 let newArr = []
 

@@ -31,6 +31,18 @@ let curruntUsername = usersObj[userIndex].name;
 console.log(usersObj[userIndex].partTeam[teamIndex])
 
 let curruntTeam = usersObj[userIndex].partTeam[teamIndex];
+
+
+// getting login data from local storage
+let getUserFromLocal = localStorage.getItem("userObjLoginLocal");
+getUserFromLocal = JSON.parse(getUserFromLocal);
+if (getUserFromLocal) {
+    console.log(getUserFromLocal)
+} else {
+    window.location = 'index.html'
+}
+
+
 // function for reloading page
 function refresh() {
     setTimeout(function () {

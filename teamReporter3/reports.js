@@ -15,6 +15,14 @@ teamIndex = JSON.parse(teamIndex);
 
 curruntTeam = usersObj[userIndex].createdTeam[teamIndex]
 
+// getting login data from local storage
+let getUserFromLocal = localStorage.getItem("userObjLoginLocal");
+getUserFromLocal = JSON.parse(getUserFromLocal);
+if (getUserFromLocal) {
+    console.log(getUserFromLocal)
+} else {
+    window.location = 'index.html'
+}
 
 
 if (curruntTeam.reports.length == 0) {

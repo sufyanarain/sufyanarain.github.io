@@ -20,7 +20,7 @@ let arrForMember = []
 let addMemberIndex;
 
 
-// getting data from local storage
+// getting login data from local storage
 let getUserFromLocal = localStorage.getItem("userObjLoginLocal");
 getUserFromLocal = JSON.parse(getUserFromLocal);
 // console.log(getUserFromLocal)
@@ -55,11 +55,11 @@ let takeUserInput = () => {
     let selectedCategory = selectCategory.options[selectCategory.selectedIndex].value;
     let team = {
         admin: getUserFromLocal.email,
-        adminName:getUserFromLocal.name,
+        adminName: getUserFromLocal.name,
         teamName: teamName.value,
         category: selectedCategory,
         members: arrForMember,
-        reports:[],
+        reports: [],
         teamKey: new Date().getTime()
     }
     refresh()
@@ -89,8 +89,13 @@ let takeUserInput = () => {
 }
 // function showing useres and add them
 let addMemberFunc = (e, eId, d) => {
+    let addedMembers = document.getElementById("addedMembers");
+    addedMembers.innerHTML = ""
     arrForMember.push(usersObj[eId].name);
+    for (let i = 0; i < arrForMember.length; i++) {
 
+        addedMembers.innerHTML += `<li class="bg-success" id="${i}">${arrForMember[i]}</li>`
+    }
 
     e.remove()
     console.log(arrForMember);
@@ -135,7 +140,7 @@ let displayFunc = () => {
 
     // console.log(teamsObj)
     if (teamsObj.length == 0) {
-        teamsDiv.innerHTML = `<h5>you have not created any team,click on plus button and create a new team</h5> <hr>`
+        teamsDiv.innerHTML = `<p class="emptyTeams">you have not created any team,click on plus button and create a new team</p> <hr>`
     } else {
         for (let i = 0; i < teamsObj.length; i++) {
             membersArr = ""
@@ -222,11 +227,14 @@ let memberDecet = (id, e) => {
 let teamsYouPartDiv = document.getElementById("teamsYouPartDiv");
 
 let teamsPrt = usersObj[index].partTeam;
-if (teamsPrt) {
+if (teamsPrt.length == 0) {
+    teamsYouPartDiv.innerHTML = `<p class="emptyTeams">You are not part of any team.</p>`
+    
+}else{
     let currentUser = usersObj[index];
     let partTeamMember = "";
-
     let partTeamDisplay = () => {
+
         for (let i = 0; i < teamsPrt.length; i++) {
             partTeamMember = ""
             for (let w = 0; w < teamsPrt[i].members.length; w++) {
@@ -256,11 +264,10 @@ if (teamsPrt) {
             </div>`
         }
     }
-
-    // console.log(currentUser)
-    partTeamDisplay()
-
+    partTeamDisplay()    
 }
+    // console.log(currentUser)
+
 
 
 
