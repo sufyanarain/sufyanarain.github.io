@@ -48,6 +48,9 @@
     *{
         /* background-color: rgb(189, 95, 95); */
     }
+    .btn-outline-primary{
+        width: 40vw !important;
+    }
 
    
 

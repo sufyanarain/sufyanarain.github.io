@@ -215,6 +215,10 @@ padding: 4px 7px;
         font-size: 16px !important;
         /* background-color: aqua; */
     }
+
+    .btn-outline-primary{
+        width: 40vw !important;
+    }
     /* #settings{
         border-bottom: 1px solid rgb(17, 17, 17);
     
