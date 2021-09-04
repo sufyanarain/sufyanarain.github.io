@@ -40,7 +40,11 @@
             </div>
         </div>
         <div class="logoutBtn">
-            <button class="btn btn-primary" id="logoutBtn">Logout</button>
+            <!-- <button class="btn btn-primary" id="logoutBtn">Logout</button> -->
+            <button id="profileBtn"  class="btn btn-primary"
+        type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        Profile
+    </button>
         </div>
     </nav>
     <!-- ************* end navbar ****************** -->
@@ -54,6 +58,7 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
+            
             <div class="modal-content ">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Create new Team</h5>
@@ -137,21 +142,17 @@
     <!-- ************* end teams own div ************** -->
 
 
-    <button id="profileBtn" style="position: absolute; bottom: 10px; right: 100px;" class="btn btn-primary"
-        type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-        Profile
-    </button>
+    
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <!-- <div class="offcanvas-header">
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div> -->
         <div class="offcanvas-body">
+            <button style="background-color: rgb(255, 255, 255); position: absolute; top: 15px; right: 24px;" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 100%; height: 94vh;">
-                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
+                <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                
                     <span class="fs-4">Profile</span>
                 </a>
                 <hr>

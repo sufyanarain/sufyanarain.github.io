@@ -241,4 +241,8 @@
     .card-body h5 {
         font-size: 18px;
     }
+
+    #offcanvasExample{
+        width: 100%;
+    }
 }
