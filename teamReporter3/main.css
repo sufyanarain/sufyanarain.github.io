@@ -163,6 +163,33 @@
     font-weight: 400;
 }
 
+#offcanvasExample{
+    width: 350px;
+    background-color: #212529;
+}
+
+.nav-pills{
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.nav-pills li{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 770px) {
     .emptyTeams {
         font-size: 16px;

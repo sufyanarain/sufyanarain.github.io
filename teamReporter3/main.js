@@ -240,6 +240,12 @@ if (teamsPrt.length == 0) {
             for (let w = 0; w < teamsPrt[i].members.length; w++) {
                 if (teamsPrt[i].members[w] == currentUser.name) {
                     teamsPrt[i].members[w] = "YOU"
+                    Array.prototype.move = function(from,to){
+                        this.splice(to,0,this.splice(from,1)[0]);
+                        return this;
+                        
+                    };
+                    teamsPrt[i].members.move(1,0)
                 }
                 partTeamMember += `<p>${teamsPrt[i].members[w]}</p>`
                 // membersArr += `<p>${teamsObj[i].members[w]}</p>`
@@ -268,6 +274,28 @@ if (teamsPrt.length == 0) {
 }
     // console.log(currentUser)
 
+    let profileBtn = document.getElementById("profileBtn");
+    let profileFunc = ()=>{
+        let nameId = document.getElementById("nameId");
+        let emailId = document.getElementById("emailId");
+        let passwordId = document.getElementById("passwordId");
+        let userNmaeP = document.getElementById("userNmaeP");
+        let currentUser = usersObj[index];
+        
+        nameId.innerHTML = `<p contenteditable="true">Name : ${currentUser.name}</p><i class="bi bi-pencil-square"></i>`
+        emailId.innerHTML = `<p>Email : ${currentUser.email}</p>`
+        passwordId.innerHTML = `<p>password : ${currentUser.password}</p><i class="bi bi-pencil-square"></i>`
+        userNmaeP.innerHTML = currentUser.name;
+        console.log(currentUser)
+        
+        
+        
+        
+        
+        
+        
+    }
+    profileBtn.addEventListener('click',profileFunc)
 
 
 
@@ -287,7 +315,8 @@ if (teamsPrt.length == 0) {
 
 
 // logout
-logoutBtn.addEventListener('click', () => {
+let logout =  () => {
     localStorage.removeItem("userObjLoginLocal");
     window.location = 'index.html'
-})
+}
+logoutBtn.addEventListener('click',logout)

@@ -241,9 +241,16 @@ let addMembersFunc = () => {
 // function showing useres and add them
 let addMemberFunc = (e, eId) => {
     // removing members from dom after clicking on members
+    // arrForMember.push(usersObj[eId].name);
+    let addedMembers = document.getElementById("addedMembers");
+    addedMembers.innerHTML = ""
+    arrForMember.push(usersObj[eId].name);
+    for (let i = 0; i < arrForMember.length; i++) {
+
+        addedMembers.innerHTML += `<li class="bg-success" id="${i}">${arrForMember[i]}</li>`
+    }
     e.remove()
     // pushing members after clicking on member
-    arrForMember.push(usersObj[eId].name);
 
     // setting data in object after adding
     curruntTeam.members.push(usersObj[eId].name);
