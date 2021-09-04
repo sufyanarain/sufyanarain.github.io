@@ -99,20 +99,38 @@ let answer = (element, Eid) => {
 }
 
 let submit = () => {
-    // curruntTeam.questions[Eid].ans = element.value;
-    for (let i = 0; i < usersObj.length; i++) {
-        for (let j = 0; j < usersObj[i].createdTeam.length; j++) {
-            if (usersObj[i].createdTeam[j].admin == curruntTeam.admin) {
-                console.log(curruntTeam.admin, usersObj[i].createdTeam[j].admin);
-                usersObj[i].createdTeam[j].reports.push({ [curruntUsername]: curruntTeam.questions})
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You can submit only once.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#28a745',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Submit it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Submitted!',
+                'Your file has been submitted.',
+                'success'
+            )
+            for (let i = 0; i < usersObj.length; i++) {
+                for (let j = 0; j < usersObj[i].createdTeam.length; j++) {
+                    if (usersObj[i].createdTeam[j].admin == curruntTeam.admin) {
+                        console.log(curruntTeam.admin, usersObj[i].createdTeam[j].admin);
+                        usersObj[i].createdTeam[j].reports.push({ [curruntUsername]: curruntTeam.questions})
+                    }
+                }
             }
+            // curruntTeam.questions.push()
+            curruntTeam.subBtnStatus = true;
+            localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
+            // console.log(curruntTeam.admin)
+            submitBtn.disabled = true;
+            
         }
-    }
-    // curruntTeam.questions.push()
-    curruntTeam.subBtnStatus = true;
-    localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
-    // console.log(curruntTeam.admin)
-    submitBtn.disabled = true;
+    })
+    // curruntTeam.questions[Eid].ans = element.value;
     
 }
 submitBtn.disabled = curruntTeam.subBtnStatus;

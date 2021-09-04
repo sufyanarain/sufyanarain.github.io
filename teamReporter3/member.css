@@ -48,7 +48,7 @@ cursor: pointer;
 padding: 4px 7px;
 }
 #questionUl{
-    min-height: 240px;
+    min-height: 57vh;
     /* margin-left: 100px; */
     margin-bottom: 30px;
     text-transform: uppercase;
@@ -155,6 +155,10 @@ input[type=number]:focus,
     margin-bottom: 20px;
     width: 300px;
 }
+
+/* #submitBtn:disabled{
+    cursor: no-drop !important;
+} */
 
 
 
