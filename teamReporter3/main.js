@@ -274,7 +274,7 @@ if (teamsPrt.length == 0) {
 }
     // console.log(currentUser)
 
-    let profileBtn = document.getElementById("profileBtn");
+    // let logoutBtn = document.getElementById("logoutBtn");
     let profileFunc = ()=>{
         let nameId = document.getElementById("nameId");
         let emailId = document.getElementById("emailId");
@@ -295,7 +295,7 @@ if (teamsPrt.length == 0) {
         
         
     }
-    profileBtn.addEventListener('click',profileFunc)
+    logoutBtn.addEventListener('click',profileFunc)
 
 
 
@@ -319,4 +319,4 @@ let logout =  () => {
     localStorage.removeItem("userObjLoginLocal");
     window.location = 'index.html'
 }
-logoutBtn.addEventListener('click',logout)
+// logoutBtn.addEventListener('click',logout)
