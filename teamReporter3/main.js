@@ -29,6 +29,7 @@ if (getUserFromLocal) {
     window.location = 'index.html'
 }
 
+localStorage.clear()
 
 // getting users object from localstorage
 let usersObj = localStorage.getItem("userObjLocal");
