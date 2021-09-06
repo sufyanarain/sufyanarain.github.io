@@ -325,7 +325,7 @@ var deletePartTeam = () => {
         for (let j = 0; j < teamMemberArr.length; j++) {
             // console.log(usersObj[i], teamMemberArr[j])
             if (usersObj[i].name == teamMemberArr[j]) {
-                // console.log("matched")
+                // console.log(usersObj[i].partTeam)
                 for (let k = 0; k < usersObj[i].partTeam.length; k++) {
                     if (usersObj[i].partTeam[k].teamKey == curruntTeam.teamKey) {
                         usersObj[i].partTeam.splice(k, 1)

@@ -90,12 +90,6 @@ input[type=number]:focus,
     margin-top: 10px;
 }
 
-.bi-trash{
-    cursor: pointer;
-    /* background-color: blue; */
-    padding: 10px;
-    border-radius: 10px;
-}
 
 
 .membersUl{
@@ -106,22 +100,7 @@ input[type=number]:focus,
     
 }
 
-.membersUl li{
-    padding: 5px 18px;
-    border: 1px solid #ccc;
-    margin: 4px 10px;
-    border-radius: 16px;
-    width: 120px;
-    text-align: center;
-    font-weight: 500;
-}
 
-.membersUl li:hover{
-    background-color: rgb(44, 44, 44);
-    color: rgb(240, 240, 240);
-    cursor: pointer;
-    border: 1px solid  rgb(56, 56, 56);
-}
 
 #teamMembers li{
     display: flex;
@@ -129,69 +108,28 @@ input[type=number]:focus,
     padding-left: 10px;
 }
 
-.bi-x-circle-fill {
-    margin-right: -29px;
-    /* background-color: rgb(170, 71, 71); */
-}
 
-.memberHead{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
-}
-
-#modalBBtn{
-    margin-bottom: 10px;
-    width: 300px !important;
-}
-
-#deleteTeamDiv{
-    display: flex;
-    justify-content: center;
-}
-
-#deleteTeamDiv button {
-    margin-bottom: 20px;
-    width: 300px;
-}
-
-/* #submitBtn:disabled{
-    cursor: no-drop !important;
-} */
 
 
 
 @media screen and (max-width: 570px) {
     
-    #questionUl li{
-        /* background-color: rgb(151, 94, 94); */
-        
+    #questionUl li{        
         width: 98%;
     }
     #teamMembers{
         margin-left: -20px;
     }
 
-    .btn-primary{
-    width: 95%;
-    margin-left: 8px;
-    }
-
+    
     #teamMembers li{
         /* width: 40vw; */
         /* font-weight: 500; */
         font-size: 18px;
     }
 
-    .bi-x-circle-fill {
-        /* margin-right: -10px; */
-        /* background-color: rgb(170, 71, 71); */
-    }
-
-    #deleteTeamDiv button {
-        margin-left: 8px;
-    }
+    
 
     #submitBtn{
         width: 97%;

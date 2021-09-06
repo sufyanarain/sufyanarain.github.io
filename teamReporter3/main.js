@@ -19,7 +19,6 @@ let arrForMember = []
 // let membersUl = "";
 let addMemberIndex;
 
-
 // getting login data from local storage
 let getUserFromLocal = localStorage.getItem("userObjLoginLocal");
 getUserFromLocal = JSON.parse(getUserFromLocal);
@@ -52,6 +51,7 @@ function refresh() {
 }
 // getting data from user input
 let takeUserInput = () => {
+
     let selectedCategory = selectCategory.options[selectCategory.selectedIndex].value;
     let team = {
         admin: getUserFromLocal.email,
@@ -62,29 +62,40 @@ let takeUserInput = () => {
         reports: [],
         teamKey: new Date().getTime()
     }
-    refresh()
-
-    for (let i = 0; i < usersObj.length; i++) {
-        if (usersObj[i].name === getUserFromLocal.name) {
-            arr2 = usersObj[i].createdTeam;
+    if(team.teamName === ""){
+        swal("Team not created", "Please input team name!", "error");
+        
+    }else{
+        
+        for (let i = 0; i < usersObj.length; i++) {
+            if (usersObj[i].name === getUserFromLocal.name) {
+                arr2 = usersObj[i].createdTeam;
+            }
         }
-    }
-
-    if (arr2 === undefined) {
-        var arr = []
-    } else {
-        var arr = arr2;
-    }
-    arr.push(team)
-
-    //  setting team object to user's main object and setting  to local storage
-    for (let i = 0; i < usersObj.length; i++) {
-        if (usersObj[i].name === getUserFromLocal.name) {
-            usersObj[i].createdTeam = arr;
+        
+        if (arr2 === undefined) {
+            var arr = []
+        } else {
+            var arr = arr2;
         }
+        refresh()
+        arr.push(team)
+        //  setting team object to user's main object and setting  to local storage
+        for (let i = 0; i < usersObj.length; i++) {
+            if (usersObj[i].name === getUserFromLocal.name) {
+                usersObj[i].createdTeam = arr;
+            }
+        }
+        localStorage.setItem("userObjLocal", JSON.stringify(usersObj));
+        displayFunc()
     }
-    localStorage.setItem("userObjLocal", JSON.stringify(usersObj));
-    displayFunc()
+    
+    
+
+
+
+
+
 
 }
 // function showing useres and add them
@@ -238,15 +249,6 @@ if (teamsPrt.length == 0) {
         for (let i = 0; i < teamsPrt.length; i++) {
             partTeamMember = ""
             for (let w = 0; w < teamsPrt[i].members.length; w++) {
-                if (teamsPrt[i].members[w] == currentUser.name) {
-                    teamsPrt[i].members[w] = "YOU"
-                    Array.prototype.move = function(from,to){
-                        this.splice(to,0,this.splice(from,1)[0]);
-                        return this;
-                        
-                    };
-                    teamsPrt[i].members.move(1,0)
-                }
                 partTeamMember += `<p>${teamsPrt[i].members[w]}</p>`
                 // membersArr += `<p>${teamsObj[i].members[w]}</p>`
                 if (w > 0) {

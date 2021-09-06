@@ -183,7 +183,7 @@ let LoginHelp = document.getElementById("LoginHelp");
 
 // created class for user's input
 class UserObj {
-    constructor(name, email, password,userKey,partTeam,createdTeam) {
+    constructor(name, email, password, userKey, partTeam, createdTeam) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -222,7 +222,7 @@ class AddUserData {
                     LoginHelp.innerHTML = `this username is not availabe,try another`
                 }
             }
-            if(userCond === true){
+            if (userCond === true) {
                 InputUser.style.borderColor = "#ccc";
                 LoginHelp.innerHTML = ``
             }
@@ -288,7 +288,7 @@ class AddUserData {
     // creating object after validating
 
     createObj() {
-        let data1 = new UserObj(InputUser.value.toUpperCase(), InputEmail.value, InputPassword1.value,new Date().getTime(),[],[]);
+        let data1 = new UserObj(InputUser.value.toUpperCase(), InputEmail.value, InputPassword1.value, new Date().getTime(), [], []);
         return data1
 
     }
@@ -325,6 +325,16 @@ submit.addEventListener('click', event => {
 
         console.log(getfromLocal)
         user.clear()
+        swal({
+            title: "Account Created",
+            text: "Your account has been created! please login.",
+            icon: "success",
+            button: "OK",
+        })
+            .then(() => {
+
+                window.location = "index.html"
+            });
     } else {
         console.log("user cond false")
 

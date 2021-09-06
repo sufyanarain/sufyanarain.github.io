@@ -59,33 +59,6 @@ let displayFunc = () => {
 
 }
 displayFunc()
-// function for adding question to object
-// let addQuestFunc = () => {
-//     // getting questions from users input
-//     if (curruntTeam.questions === undefined) {
-//         var questArr = []
-//     } else {
-
-//         questArr = curruntTeam.questions;
-//     }
-//     questArr.push({ q: questionInp.value, ans: "" })
-//     // setting question in  users object 
-//     curruntTeam.questions = questArr;
-//     // updating users object after adding question
-//     localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
-
-//     // removing question from input afer adding
-//     questionInp.value = ""
-//     displayQuestFunc()
-//     // refresh()
-// }
-// addQuestionBtn.addEventListener('click', addQuestFunc);
-
-// function for deleting questions
-
-
-
-
 
 
 console.log(curruntTeam.questions[0])
@@ -94,7 +67,7 @@ let answer = (element, Eid) => {
     console.log(element.value)
 
 
-    localStorage.setItem("userObjLocal",JSON.stringify(usersObj))
+    localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
     console.log(curruntTeam.questions)
 }
 
@@ -118,7 +91,7 @@ let submit = () => {
                 for (let j = 0; j < usersObj[i].createdTeam.length; j++) {
                     if (usersObj[i].createdTeam[j].admin == curruntTeam.admin) {
                         console.log(curruntTeam.admin, usersObj[i].createdTeam[j].admin);
-                        usersObj[i].createdTeam[j].reports.push({ [curruntUsername]: curruntTeam.questions})
+                        usersObj[i].createdTeam[j].reports.push({ [curruntUsername]: curruntTeam.questions })
                     }
                 }
             }
@@ -127,7 +100,6 @@ let submit = () => {
             localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
             // console.log(curruntTeam.admin)
             submitBtn.disabled = true;
-            
         }
     })
     // curruntTeam.questions[Eid].ans = element.value;
@@ -149,7 +121,18 @@ let displayQuestFunc = () => {
 
 displayQuestFunc()
 
+let displayFunc1 = () => {
+
+    // showing team name
+
+    //    showing team members on main page
+    for (let i = 0; i < curruntTeam.members.length; i++) {
+        teamMembers.innerHTML += `
+        <li class="membersLi" id="${i}">${curruntTeam.members[i]}</li>`
+        showingMembers.push(curruntTeam.members[i])
+    }
+
+}
 
 
-
-
+displayFunc1()

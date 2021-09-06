@@ -41,10 +41,10 @@
         </div>
         <div class="logoutBtn">
             <!-- <button class="btn btn-primary" id="logoutBtn">Logout</button> -->
-            <button id="logoutBtn"  class="btn btn-primary"
-        type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-        Profile
-    </button>
+            <button id="logoutBtn" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                Profile
+            </button>
         </div>
     </nav>
     <!-- ************* end navbar ****************** -->
@@ -58,7 +58,7 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            
+
             <div class="modal-content ">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Create new Team</h5>
@@ -71,7 +71,7 @@
                     </div>
                     <!-- select bar  -->
                     <select id=selectCategory class="form-select" aria-label="Default select example">
-                        <option selected>Select Category</option>
+                        <!-- <option selected>Select Category</option> -->
                         <option value="Testing Team">Testing Team</option>
                         <option value="Development team">Development team</option>
                         <option value="Marketing team">Marketing team</option>
@@ -142,17 +142,18 @@
     <!-- ************* end teams own div ************** -->
 
 
-    
+
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <!-- <div class="offcanvas-header">
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div> -->
         <div class="offcanvas-body">
-            <button style="background-color: rgb(255, 255, 255); position: absolute; top: 15px; right: 24px;" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button style="background-color: rgb(255, 255, 255); position: absolute; top: 15px; right: 24px;"
+                type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 100%; height: 100%;">
                 <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                
+
                     <span class="fs-4">Profile</span>
                 </a>
                 <hr>
@@ -190,7 +191,7 @@
     </div>
 
 
-    
+
 
 
 
@@ -203,14 +204,7 @@
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-    -->
-
-
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
     <script src="main.js"></script>

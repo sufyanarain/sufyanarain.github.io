@@ -153,7 +153,8 @@ login.addEventListener('click', () => {
         // console.log(userObj[i].email, loginEmail1.value)
         if (userObj[i].email === loginEmail1.value && userObj[i].password === loginPassword.value) {
             userLogin = true;
-            userObjLogin = userObj[i]
+            userObjLogin = userObj[i];
+            LoginHelp.innerHTML = ``
         } else if (userObj[i].password !== loginPassword.value) {
             LoginHelp.innerHTML = `<p>Email or Password is incorrect.</p>`
         }
