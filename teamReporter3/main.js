@@ -62,17 +62,17 @@ let takeUserInput = () => {
         reports: [],
         teamKey: new Date().getTime()
     }
-    if(team.teamName === ""){
+    if (team.teamName === "") {
         swal("Team not created", "Please input team name!", "error");
-        
-    }else{
-        
+
+    } else {
+
         for (let i = 0; i < usersObj.length; i++) {
             if (usersObj[i].name === getUserFromLocal.name) {
                 arr2 = usersObj[i].createdTeam;
             }
         }
-        
+
         if (arr2 === undefined) {
             var arr = []
         } else {
@@ -89,8 +89,8 @@ let takeUserInput = () => {
         localStorage.setItem("userObjLocal", JSON.stringify(usersObj));
         displayFunc()
     }
-    
-    
+
+
 
 
 
@@ -123,11 +123,6 @@ let teamsDecet = (id, e) => {
 
 createTeam.addEventListener('click', takeUserInput)
 let displayFunc = () => {
-
-
-
-
-
 
     teamsDiv.innerHTML = ""
     // loop for displaying members for adding
@@ -240,8 +235,8 @@ let teamsYouPartDiv = document.getElementById("teamsYouPartDiv");
 let teamsPrt = usersObj[index].partTeam;
 if (teamsPrt.length == 0) {
     teamsYouPartDiv.innerHTML = `<p class="emptyTeams">You are not part of any team.</p>`
-    
-}else{
+
+} else {
     let currentUser = usersObj[index];
     let partTeamMember = "";
     let partTeamDisplay = () => {
@@ -272,32 +267,32 @@ if (teamsPrt.length == 0) {
             </div>`
         }
     }
-    partTeamDisplay()    
+    partTeamDisplay()
 }
-    // console.log(currentUser)
+// console.log(currentUser)
 
-    // let logoutBtn = document.getElementById("logoutBtn");
-    let profileFunc = ()=>{
-        let nameId = document.getElementById("nameId");
-        let emailId = document.getElementById("emailId");
-        let passwordId = document.getElementById("passwordId");
-        let userNmaeP = document.getElementById("userNmaeP");
-        let currentUser = usersObj[index];
-        
-        nameId.innerHTML = `<p contenteditable="true">Name : ${currentUser.name}</p><i class="bi bi-pencil-square"></i>`
-        emailId.innerHTML = `<p>Email : ${currentUser.email}</p>`
-        passwordId.innerHTML = `<p>password : ${currentUser.password}</p><i class="bi bi-pencil-square"></i>`
-        userNmaeP.innerHTML = currentUser.name;
-        console.log(currentUser)
-        
-        
-        
-        
-        
-        
-        
-    }
-    logoutBtn.addEventListener('click',profileFunc)
+// let logoutBtn = document.getElementById("logoutBtn");
+let profileFunc = () => {
+    let nameId = document.getElementById("nameId");
+    let emailId = document.getElementById("emailId");
+    let passwordId = document.getElementById("passwordId");
+    let userNmaeP = document.getElementById("userNmaeP");
+    let currentUser = usersObj[index];
+
+    nameId.innerHTML = `<p contenteditable="true">Name : ${currentUser.name}</p><i class="bi bi-pencil-square"></i>`
+    emailId.innerHTML = `<p>Email : ${currentUser.email}</p>`
+    passwordId.innerHTML = `<p>password : ${currentUser.password}</p><i class="bi bi-pencil-square"></i>`
+    userNmaeP.innerHTML = currentUser.name;
+    console.log(currentUser)
+
+
+
+
+
+
+
+}
+logoutBtn.addEventListener('click', profileFunc)
 
 
 
@@ -317,7 +312,7 @@ if (teamsPrt.length == 0) {
 
 
 // logout
-let logout =  () => {
+let logout = () => {
     localStorage.removeItem("userObjLoginLocal");
     window.location = 'index.html'
 }

@@ -213,7 +213,6 @@ let deleteQuest = (id, e) => {
 
     // deleting question from users object
     curruntTeam.questions.splice(id, 1);
-    curruntTeam.reports = []
     // setting localstorage updated object after deleting question
     localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
 
