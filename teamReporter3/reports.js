@@ -37,7 +37,7 @@ if (curruntTeam.reports.length == 0) {
         for (let i = 0; i < curruntTeam.reports.length; i++) {
             // console.log(curruntTeam.reports[0])
             console.log(Object.keys(curruntTeam.reports[i])[0])
-            html.push(`<hr>Name : ${Object.keys(curruntTeam.reports[i])[0]}`)
+            html.push(`<hr>${Object.keys(curruntTeam.reports[i])[0]}`)
             console.log(curruntTeam.reports[i])
 
             for (let j in curruntTeam.reports[i]) {

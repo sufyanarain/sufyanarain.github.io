@@ -9,8 +9,10 @@
 }
 
 #mainHead{
-    text-align: center;
+    /* text-align: center; */
     margin-top: 12px;
+    font-size: 19px !important;
+    font-weight: 500;
     /* border-bottom: 1px solid #ccc; */
     /* background-color: rgb(124, 82, 82); */
 }

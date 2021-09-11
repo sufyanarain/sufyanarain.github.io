@@ -26,7 +26,14 @@ teamIndex = JSON.parse(teamIndex);
 let teamsArr = [];
 let newArr = []
 
-let curruntUsername = usersObj[userIndex].name;
+let monthArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+let dateObj = new Date();
+let month = dateObj.getUTCMonth() + 1; //months from 1-12
+let day = dateObj.getUTCDate();
+let year = dateObj.getUTCFullYear();
+
+let newdate = `${day}th ${monthArr[month]} ${year}`;
+let curruntUsername = `${usersObj[userIndex].name} : ${newdate}`;
 
 console.log(usersObj[userIndex].partTeam[teamIndex])
 
@@ -103,7 +110,7 @@ let submit = () => {
         }
     })
     // curruntTeam.questions[Eid].ans = element.value;
-    
+
 }
 submitBtn.disabled = curruntTeam.subBtnStatus;
 // function for displaying questions
