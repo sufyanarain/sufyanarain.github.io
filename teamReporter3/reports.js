@@ -1,7 +1,8 @@
 let qA = document.getElementById("qA");
 let userName = document.getElementById("userName");
 let reportsSec = document.getElementById("reportsSec");
-
+let resultArr = []
+let html = [];
 
 // getting data from localStorage
 let usersObj = localStorage.getItem("userObjLocal");
@@ -29,7 +30,7 @@ if (curruntTeam.reports.length == 0) {
     reportsSec.innerHTML = `<hr><p>no one has submitted answers.`
 } else {
     // console.log(Object.keys(curruntTeam.reports[0]))
-    let html = [];
+
     let userHtml = [];
     let p = 0;
     let displayQuest = () => {
@@ -66,12 +67,29 @@ if (curruntTeam.reports.length == 0) {
         }
 
         // finding not submittied members.
-        let resultArr = []
         resultArr = curruntTeam.members.filter(function (val) {
             return userHtml.indexOf(val) == -1;
         });
-        
-        console.log(resultArr)
+
+
+
+
+
+
+        // <div id="userName">${userHtml[d]}</div>
+
+    }
+    displayQuest()
+
+}
+
+let disSelect = () => {
+    let allMembers = document.getElementById("allMembers");
+
+    allMembers = allMembers.options[allMembers.selectedIndex].value;
+    if (allMembers == "allMembers") {
+        qA.innerHTML = "";
+        notSubmitted.innerHTML ="";
         for (let d = 0; d < html.length; d++) {
             console.log(html[d])
             qA.innerHTML += `
@@ -96,15 +114,45 @@ if (curruntTeam.reports.length == 0) {
             
             </div>`
         }
-        
-        // <div id="userName">${userHtml[d]}</div>
 
+    } else if (allMembers == "submitted") {
+        qA.innerHTML = "";
+        notSubmitted.innerHTML ="";
+
+        for (let d = 0; d < html.length; d++) {
+            console.log(html[d])
+            qA.innerHTML += `
+            
+            <div id="qA">
+            <p>${html[d]}</p>
+            
+            
+            
+            </div>`
+        }
+    } else if (allMembers == "notSubmitted") {
+        qA.innerHTML = "";
+        notSubmitted.innerHTML ="";
+        for (let e = 0; e < resultArr.length; e++) {
+            console.log(resultArr[e])
+            notSubmitted.innerHTML += `
+            
+            <div id="qA">
+            <hr>
+            <p>Name : ${resultArr[e]}</p>
+            <h6>NOT SUBMITTED</h6>
+            
+            
+            </div>`
+        }
     }
-    displayQuest()
+
+    console.log(allMembers)
 
 }
 
-
+disSelect()
+console.log(resultArr)
 
 
 

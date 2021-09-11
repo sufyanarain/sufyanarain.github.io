@@ -166,7 +166,7 @@ login.addEventListener('click', () => {
     
 
     
-
+    var allMembers = document.getElementById("allMembers").value;
 
     if (userLogin) {
         window.location = "main.html"

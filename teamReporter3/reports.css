@@ -42,6 +42,11 @@
     
 }
 
+#allMembers{
+    width: 200px;
+    text-align: center;
+}
+
 
 
 @media screen and (max-width: 570px) {
@@ -52,7 +57,9 @@
         width: 40vw !important;
     }
 
-   
+    #allMembers{
+        width: 98%;
+    }
 
 
 }
