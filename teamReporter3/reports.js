@@ -62,12 +62,16 @@ if (curruntTeam.reports.length == 0) {
 
                 // userName.innerHTML += ` <p >${userHtml[i]}</p> `
             }
-            console.log(html)
             // <div id="userName">${userHtml[i]}</div>
-
-
-
         }
+
+        // finding not submittied members.
+        let resultArr = []
+        resultArr = curruntTeam.members.filter(function (val) {
+            return userHtml.indexOf(val) == -1;
+        });
+        
+        console.log(resultArr)
         for (let d = 0; d < html.length; d++) {
             console.log(html[d])
             qA.innerHTML += `
@@ -79,6 +83,20 @@ if (curruntTeam.reports.length == 0) {
             
             </div>`
         }
+
+        for (let e = 0; e < resultArr.length; e++) {
+            console.log(resultArr[e])
+            notSubmitted.innerHTML += `
+            
+            <div id="qA">
+            <hr>
+            <p>Name : ${resultArr[e]}</p>
+            <h6>NOT SUBMITTED</h6>
+            
+            
+            </div>`
+        }
+        
         // <div id="userName">${userHtml[d]}</div>
 
     }
