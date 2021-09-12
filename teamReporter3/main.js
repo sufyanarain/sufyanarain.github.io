@@ -24,7 +24,7 @@ let getUserFromLocal = localStorage.getItem("userObjLoginLocal");
 getUserFromLocal = JSON.parse(getUserFromLocal);
 // console.log(getUserFromLocal)
 if (getUserFromLocal) {
-    console.log(getUserFromLocal)
+    // console.log(getUserFromLocal)
 } else {
     window.location = 'index.html'
 }
@@ -109,7 +109,7 @@ let addMemberFunc = (e, eId, d) => {
     }
 
     e.remove()
-    console.log(arrForMember);
+    // console.log(arrForMember);
 
 }
 
@@ -205,21 +205,6 @@ let addMoreFunc = (e) => {
 
 }
 
-// let addNewMemFunc = () => {
-//     teamsObj[addMemberIndex].members.push(addMoreInp.value)
-//     // setting deleted item from object and setting it to main object
-//     usersObj[index].createdTeam = teamsObj;
-//     // console.log(usersObj3[addMemberIndex].createdTeam, teamsObj)
-//     // setting main object to local storage
-//     localStorage.setItem("userObjLocal", JSON.stringify(usersObj));
-//     //resetting add member input
-//     addMoreInp.value = "";
-//     // updating display function to update elemnts after deleting
-//     displayFunc()
-// }
-
-
-
 
 // teams you are part 
 let memberDecet = (id, e) => {
@@ -283,7 +268,7 @@ let profileFunc = () => {
     emailId.innerHTML = `<p>Email : ${currentUser.email}</p>`
     passwordId.innerHTML = `<p>password : ${currentUser.password}</p><i class="bi bi-pencil-square"></i>`
     userNmaeP.innerHTML = currentUser.name;
-    console.log(currentUser)
+    // console.log(currentUser)
 
 
 

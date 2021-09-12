@@ -26,89 +26,13 @@ teamIndex = JSON.parse(teamIndex);
 let getUserFromLocal = localStorage.getItem("userObjLoginLocal");
 getUserFromLocal = JSON.parse(getUserFromLocal);
 if (getUserFromLocal) {
-    console.log(getUserFromLocal)
+    // console.log(getUserFromLocal)
 } else {
     window.location = 'index.html'
 }
 
 let teamsArr = [];
 let newArr = []
-
-
-
-// for (let i = 0; i < usersObj.length; i++) {
-//     // console.log(usersObj[i]);
-//     if (usersObj[i].createdTeam) {
-//         for (let j = 0; j < usersObj[i].createdTeam.length; j++) {
-//             // console.log(usersObj[i].createdTeam[j]);
-//             for (let k = 0; k < usersObj[i].createdTeam[j].members.length; k++) {
-//                 // console.log(usersObj[i].createdTeam[j])
-//                 // console.log(usersObj[i].createdTeam[j].members[k])
-//                 for (let l = 0; l < usersObj.length; l++) {
-//                     if (usersObj[l].name === usersObj[i].createdTeam[j].members[k]) {
-//                         // console.log(usersObj[l].name, usersObj[i].createdTeam[j].members[k])
-//                         // usersObj[l].partTeam.push(usersObj[i].createdTeam[j])
-//                         for (let m = 0; m < usersObj[l].partTeam.length; m++) {
-//                             console.log(usersObj[l].partTeam[m])
-//                             if (usersObj[l].partTeam[m].name !== usersObj[i].createdTeam[j].name) {
-//                                 usersObj[l].partTeam.splice(m, 1)
-//                                 console.log(l)
-
-//                             }
-//                             // else {
-
-//                             // }
-//                             usersObj[l].partTeam.push(usersObj[i].createdTeam[j])
-//                         }
-
-//                     }
-//                     //             // console.log(usersObj[l].name,usersObj[i].createdTeam[j].members[k])
-//                     //         // }
-//                     //     // usersObj[i].createdTeam[j].members[k].partTeam.push(usersObj[i].createdTeam[j])
-//                 }
-//             }
-//         }
-//     }
-// }
-// localStorage.setItem("userObjLocal", JSON.stringify(usersObj));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// for (let i = 0; i < usersObj.length; i++) {
-//     teamsArr.push(usersObj[i].createdTeam)
-// }
-
-// for (let s = 0; s < teamsArr.length; s++) {
-//     if (teamsArr[s]) {
-//         newArr.push(teamsArr[s])
-
-//     }
-// }
-
-// for (let i = 0; i < newArr.length; i++) {
-//     console.log(newArr[i])
-//     for (let j = 0; j < newArr[i].length; j++) {
-//         console.log(newArr[i].members[j])
-//     }
-// }
-
-
-
-
-
-
-
 
 
 let curruntTeam = usersObj[userIndex].createdTeam[teamIndex];
@@ -126,14 +50,14 @@ let deletePartTeamFunc = (index) => {
     for (let i = 0; i < usersObj.length; i++) {
         if (usersObj[i].name == curruntTeam.members[index]) {
             deleteMemIndex = i;
-            console.log(usersObj[i], console.log(index))
+            // console.log(usersObj[i], console.log(index))
         }
     }
 
     for (let j = 0; j < usersObj[deleteMemIndex].partTeam.length; j++) {
         if (usersObj[deleteMemIndex].partTeam[j].teamKey == curruntTeam.teamKey) {
             usersObj[deleteMemIndex].partTeam.splice(j, 1)
-            console.log("key matched")
+            // console.log("key matched")
         }
     }
     localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
@@ -149,17 +73,11 @@ let deletePartTeamFunc = (index) => {
 // let deleteMemInd;
 
 let deletMemberFunc = (e, eId) => {
-    console.log(eId)
+    // console.log(eId)
     deletePartTeamFunc(eId)
     // deleting member from dom
     e.parentNode.remove();
 
-    // for (let i = 0; i < usersObj.length; i++) {
-    //     if (usersObj[i].name == curruntTeam.members[eId]) {
-    //         deleteMemInd = i
-    //     }
-    // }
-    // deleting element from user object
     curruntTeam.members.splice(eId, 1)
     deleteMemId = eId;
     deleteMemFlag = true;
@@ -268,7 +186,7 @@ var addMembers = () => {
         <li class="membersLiModal" onclick="addMemberFunc(this,this.id)"  id="${i}">${usersObj[i].name}</li>`
 
         if (usersObj[i].name == usersObj[userIndex].name) {
-            console.log(membersLiModal[i].innerText, usersObj[userIndex].name)
+            // console.log(membersLiModal[i].innerText, usersObj[userIndex].name)
             membersLiModal[i].style.display = "none"
         }
         for (let s = 0; s < membersLi.length; s++) {
@@ -306,16 +224,9 @@ let deleteTeamFunc = () => {
         }
     })
 
-    // getting index from id and deleting from object
-    // setting deleted item from object and setting it to main object
-    // localStorage.setItem("userObjLocal", JSON.stringify(usersObj));
-    // changing window location
 
 }
-console.log(delTeamFlag)
 
-// console.log(usersObj[userIndex].createdTeam[teamIndex].members)
-// let curruntTeamObj = usersObj[userIndex]
 
 var deletePartTeam = () => {
 

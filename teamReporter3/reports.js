@@ -20,7 +20,7 @@ curruntTeam = usersObj[userIndex].createdTeam[teamIndex]
 let getUserFromLocal = localStorage.getItem("userObjLoginLocal");
 getUserFromLocal = JSON.parse(getUserFromLocal);
 if (getUserFromLocal) {
-    console.log(getUserFromLocal)
+    // console.log(getUserFromLocal)
 } else {
     window.location = 'index.html'
 }
@@ -36,34 +36,21 @@ if (curruntTeam.reports.length == 0) {
     let displayQuest = () => {
         for (let i = 0; i < curruntTeam.reports.length; i++) {
             // console.log(curruntTeam.reports[0])
-            console.log(Object.keys(curruntTeam.reports[i])[0])
             html.push(`<hr>${Object.keys(curruntTeam.reports[i])[0]}`)
-            console.log(curruntTeam.reports[i])
 
             for (let j in curruntTeam.reports[i]) {
                 // userHtml = Object.keys(curruntTeam.reports[p])[0]
                 userHtml.push(Object.keys(curruntTeam.reports[p])[0])
-                console.log(userHtml)
+                // console.log(userHtml)
                 p++
                 for (let k = 0; k < curruntTeam.reports[i][j].length; k++) {
-                    console.log(curruntTeam.reports[i][j][k])
+                    // console.log(curruntTeam.reports[i][j][k])
                     html.push(`Q .${curruntTeam.reports[i][j][k].q}`)
                     html.push(`A .${curruntTeam.reports[i][j][k].ans}`)
-                    // += `
-                    // <p>${curruntTeam.reports[i][j][k].q}</p>
-                    // <p>${curruntTeam.reports[i][j][k].ans}</p>
-                    // `
+                    
                 }
-                // for(let k in curruntTeam.reports[i]){
-
-                // }
-
-                // qA.innerHTML = `${html}`
-
-
-                // userName.innerHTML += ` <p >${userHtml[i]}</p> `
+                
             }
-            // <div id="userName">${userHtml[i]}</div>
         }
 
         // finding not submittied members.
@@ -71,12 +58,6 @@ if (curruntTeam.reports.length == 0) {
             return userHtml.indexOf(val) == -1;
         });
 
-
-
-
-
-
-        // <div id="userName">${userHtml[d]}</div>
 
     }
     displayQuest()
@@ -91,7 +72,7 @@ let disSelect = () => {
         qA.innerHTML = "";
         notSubmitted.innerHTML ="";
         for (let d = 0; d < html.length; d++) {
-            console.log(html[d])
+            // console.log(html[d])
             qA.innerHTML += `
             
             <div id="qA">
@@ -103,7 +84,7 @@ let disSelect = () => {
         }
 
         for (let e = 0; e < resultArr.length; e++) {
-            console.log(resultArr[e])
+            // console.log(resultArr[e])
             notSubmitted.innerHTML += `
             
             <div id="qA">
@@ -120,7 +101,7 @@ let disSelect = () => {
         notSubmitted.innerHTML ="";
 
         for (let d = 0; d < html.length; d++) {
-            console.log(html[d])
+            // console.log(html[d])
             qA.innerHTML += `
             
             <div id="qA">
@@ -134,7 +115,7 @@ let disSelect = () => {
         qA.innerHTML = "";
         notSubmitted.innerHTML ="";
         for (let e = 0; e < resultArr.length; e++) {
-            console.log(resultArr[e])
+            // console.log(resultArr[e])
             notSubmitted.innerHTML += `
             
             <div id="qA">
@@ -147,12 +128,9 @@ let disSelect = () => {
         }
     }
 
-    console.log(allMembers)
-
 }
 
 disSelect()
-console.log(resultArr)
 
 
 

@@ -35,7 +35,6 @@ let year = dateObj.getUTCFullYear();
 let newdate = `${day}th ${monthArr[month]} ${year}`;
 let curruntUsername = `${usersObj[userIndex].name} : ${newdate}`;
 
-console.log(usersObj[userIndex].partTeam[teamIndex])
 
 let curruntTeam = usersObj[userIndex].partTeam[teamIndex];
 
@@ -44,7 +43,7 @@ let curruntTeam = usersObj[userIndex].partTeam[teamIndex];
 let getUserFromLocal = localStorage.getItem("userObjLoginLocal");
 getUserFromLocal = JSON.parse(getUserFromLocal);
 if (getUserFromLocal) {
-    console.log(getUserFromLocal)
+    // console.log(getUserFromLocal)
 } else {
     window.location = 'index.html'
 }
@@ -68,14 +67,10 @@ let displayFunc = () => {
 displayFunc()
 
 
-console.log(curruntTeam.questions[0])
 let answer = (element, Eid) => {
     curruntTeam.questions[Eid].ans = element.value;
-    console.log(element.value)
-
 
     localStorage.setItem("userObjLocal", JSON.stringify(usersObj))
-    console.log(curruntTeam.questions)
 }
 
 let submit = () => {
@@ -97,7 +92,7 @@ let submit = () => {
             for (let i = 0; i < usersObj.length; i++) {
                 for (let j = 0; j < usersObj[i].createdTeam.length; j++) {
                     if (usersObj[i].createdTeam[j].admin == curruntTeam.admin) {
-                        console.log(curruntTeam.admin, usersObj[i].createdTeam[j].admin);
+                        // console.log(curruntTeam.admin, usersObj[i].createdTeam[j].admin);
                         usersObj[i].createdTeam[j].reports.push({ [curruntUsername]: curruntTeam.questions })
                     }
                 }
