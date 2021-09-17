@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#showRestaurants{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.card{
+    margin: 10px 10px;
+    cursor: pointer;
+}
+
+.card:hover{
+    border: 1px solid rgb(75, 75, 75);
+
+}
+
+.bordered{
+    border: 1px solid rgb(75, 75, 75);
+
+}
+
+#dishedBtn{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}

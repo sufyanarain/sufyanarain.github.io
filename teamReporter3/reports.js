@@ -47,9 +47,9 @@ if (curruntTeam.reports.length == 0) {
                     // console.log(curruntTeam.reports[i][j][k])
                     html.push(`Q .${curruntTeam.reports[i][j][k].q}`)
                     html.push(`A .${curruntTeam.reports[i][j][k].ans}`)
-                    
+
                 }
-                
+
             }
         }
 
@@ -70,7 +70,7 @@ let disSelect = () => {
     allMembers = allMembers.options[allMembers.selectedIndex].value;
     if (allMembers == "allMembers") {
         qA.innerHTML = "";
-        notSubmitted.innerHTML ="";
+        notSubmitted.innerHTML = "";
         for (let d = 0; d < html.length; d++) {
             // console.log(html[d])
             qA.innerHTML += `
@@ -98,7 +98,7 @@ let disSelect = () => {
 
     } else if (allMembers == "submitted") {
         qA.innerHTML = "";
-        notSubmitted.innerHTML ="";
+        notSubmitted.innerHTML = "";
 
         for (let d = 0; d < html.length; d++) {
             // console.log(html[d])
@@ -113,7 +113,7 @@ let disSelect = () => {
         }
     } else if (allMembers == "notSubmitted") {
         qA.innerHTML = "";
-        notSubmitted.innerHTML ="";
+        notSubmitted.innerHTML = "";
         for (let e = 0; e < resultArr.length; e++) {
             // console.log(resultArr[e])
             notSubmitted.innerHTML += `

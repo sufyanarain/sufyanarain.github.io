@@ -43,6 +43,7 @@ let restaurantSignup = () => {
     let restaurantEmail = document.getElementById("restaurantEmail");
     let restaurantCountry = document.getElementById("restaurantCountry");
     let restaurantCity = document.getElementById("restaurantCity");
+    let restaurantImage = document.getElementById("restaurantImage");
     let restaurantPassword = document.getElementById("restaurantPassword");
     let restForm = document.getElementById("restForm");
 
@@ -53,12 +54,12 @@ let restaurantSignup = () => {
                 displayName: "true"
 
             })
-            database.collection('restaurents').doc(user.user.uid).set({
+            database.collection('restaurants').doc(user.user.uid).set({
                 RestaurantName: RestaurantName.value,
                 restaurantEmail: restaurantEmail.value,
                 restaurantCountry: restaurantCountry.value,
                 restaurantCity: restaurantCity.value,
-
+                restaurantImage:restaurantImage.value,
                 restaurant: true,
                 uid: user.user.uid
             })

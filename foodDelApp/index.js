@@ -18,12 +18,16 @@ let password = document.getElementById("password");
 let login = document.getElementById("login");
 // let CustLogin = document.getElementById("CustLogin");
 
-
-
 let restaurantLogin = () => {
     firebase.auth().signInWithEmailAndPassword(email.value, password.value)
-        .then((userCredential) => {
-            window.location = "main.html"
+        .then((user) => {
+            // console.log(user.user.displayName)
+            if(user.user.displayName == "true"){
+                window.location = "items.html"
+            }
+            else{
+                window.location = "user.html"
+            }
         })
         .catch((error) => {
         });
