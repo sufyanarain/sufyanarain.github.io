@@ -49,21 +49,26 @@ let restaurantSignup = () => {
     auth.createUserWithEmailAndPassword(restaurantEmail.value, restaurantPassword.value)
         .then((user) => {
             console.log(user.user.uid)
+            user.user.updateProfile({
+                displayName: "true"
+
+            })
             database.collection('restaurents').doc(user.user.uid).set({
                 RestaurantName: RestaurantName.value,
                 restaurantEmail: restaurantEmail.value,
                 restaurantCountry: restaurantCountry.value,
                 restaurantCity: restaurantCity.value,
+
                 restaurant: true,
                 uid: user.user.uid
             })
-            restForm.reset();
+            // restForm.reset();
             // window.location = "index.html"
         })
         .catch((error) => {
             console.log(error.message)
         });
-        // this.preventDefault()
+    // this.preventDefault()
 }
 restSignup.addEventListener('click', restaurantSignup);
 
@@ -88,12 +93,11 @@ let userSignupFunc = () => {
                 user: true,
                 uid: user.user.uid
             })
-            userFrom.reset();
+            // userFrom.reset();
             // window.location = "index.html"
         })
         .catch((error) => {
             console.log(error.message)
         });
-        // this.preventDefault();
 }
 userSignup.addEventListener('click', userSignupFunc);
