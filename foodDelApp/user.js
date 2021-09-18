@@ -21,7 +21,6 @@ database.collection("restaurants").onSnapshot((snap) => {
             <img src="${element.data().restaurantImage}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${element.data().RestaurantName}</h5>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>`
         console.log(element.data())

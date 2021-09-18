@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.dashboardDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* background-color: brown; */
+}
+
+#dashboardDisplay{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    min-height: 70vh;
+}
+
+.card{
+    margin: 0px 8px;
+    min-width: 220px;
+}
+
+.accepRejBtn{
+    display: flex;
+    justify-content: space-between;
+}
+
+#pending,#accepted,#delivered{
+    /* background-color: blueviolet; */
+    margin: 10px 10px;
+    width: 250px;
+    /* width: 30vw;
+    height: 65vh; */
+    /* border: 1px solid #ccc; */
+}

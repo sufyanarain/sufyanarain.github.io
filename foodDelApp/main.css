@@ -1,5 +1,7 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 #modalBBtn{
@@ -21,4 +23,23 @@
 
 .items{
     margin: 10px 10px;
+}
+
+.card img{
+    height: 200px;
+    padding: 4px 4px 0px 4px;
+}
+
+#orderBtn{
+    width: 100%;
+}
+
+.buttonsDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#Dashboard{
+    height: 38px;
 }

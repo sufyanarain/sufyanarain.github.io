@@ -34,7 +34,7 @@ auth.onAuthStateChanged((user) => {
       userType = "users"
     }
     database.collection(userType).doc(user.uid).get().then((snap) => {
-      console.log(snap.data())
+      console.log(snap)
 
     })
     uid = user.uid;
@@ -50,7 +50,7 @@ let createItem = () => {
   auth.onAuthStateChanged((user) => {
     if (user) {
 
-
+console.log(user)
 
       let itemName = document.getElementById("itemName");
       let itemPrice = document.getElementById("itemPrice");
@@ -69,7 +69,7 @@ let createItem = () => {
         itemImage: itemImage.value,
         deliveryTypeCategory,
         itemKey,
-        restaurant: user.uid
+        restaurant: user.uid,
       })
     }
   })
@@ -93,13 +93,13 @@ let displayTeam = () => {
             <img src="${element.data().itemImage}" class="card-img-top" alt="...">
             <div class="card-body">
             <h5 class="card-title">${element.data().itemName}</h5>
-            <p class="card-text">${element.data().itemPrice}</p>
-            <p class="card-text">${element.data().deliveryTypeCategory}</p>
-            <a href="#" class="btn btn-primary">Order</a>
+            <p class="card-text">Price :${element.data().itemPrice}</p>
+            <p class="card-text"><i class="bi bi-truck"></i> ${element.data().deliveryTypeCategory}</p>
             </div>
             </div>
             `
-        });
+          });
+          // <a href="#" id="orderBtn" class="btn btn-primary">Order</a>
   
       })
 
