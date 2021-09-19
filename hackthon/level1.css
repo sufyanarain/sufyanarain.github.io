@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.balloonDiv{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.head{
+    text-align: center;
+}
+
+.balloon{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 30px 15px;
+    text-align: center;
+    align-items: center;
+
+}
+
+.red{
+    background-color: red;
+
+}
+
+.blue{
+    background-color: blue;
+}
+
+.green{
+    background-color: green;
+}
+
+.popup{
+    background-color: white;
+    border: 1px solid #ccc;
+}

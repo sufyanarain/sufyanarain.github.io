@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.balloonDiv {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.head {
+    text-align: center;
+}
+
+.balloon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 30px 30px;
+    text-align: center;
+    align-items: center;
+}
+
+.red {
+    background-color: red;
+    position: relative;
+    animation: down 1s infinite;
+}
+
+.blue {
+    background-color: blue;
+    position: relative;
+    animation: right 1s infinite;
+}
+
+.green {
+    background-color: green;
+    position: relative;
+    animation: up 1s infinite;
+}
+
+.yellow {
+    background-color: yellow;
+    position: relative;
+    animation: up 1s infinite;
+}
+
+.popup {
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+/* #divAni{
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+    animation: mymove 5s infinite;
+  } */
+
+@keyframes down {
+    0% {
+        top: 40px;
+    }
+    25% {
+        top: 0px;
+    }
+    50% {
+        top: 40px;
+    }
+    75% {
+        top: 0px;
+    }
+    100% {
+        top: 40px;
+    }
+}
+
+@keyframes up {
+    0% {
+        bottom: 40px;
+    }
+    25% {
+        bottom: 0px;
+    }
+    50% {
+        bottom: 40px;
+    }
+    75% {
+        bottom: 0px;
+    }
+    100% {
+        bottom: 40px;
+    }
+}
+
+@keyframes right {
+    0% {
+        right: 80px;
+    }
+    25% {
+        right: 0px;
+    }
+    50% {
+        right: 80px;
+    }
+    75% {
+        right: 0px;
+    }
+    100% {
+        right: 80px;
+    }
+}
