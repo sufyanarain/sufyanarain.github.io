@@ -8,11 +8,20 @@
 .dashboardDiv{
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: center;
     /* background-color: brown; */
 }
 
-#dashboardDisplay{
+#pendingOrders{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    min-height: 70vh;
+}
+
+#acceptedOrders{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -22,7 +31,7 @@
 
 .card{
     margin: 0px 8px;
-    min-width: 220px;
+    width: 220px;
 }
 
 .accepRejBtn{

@@ -13,7 +13,10 @@ firebase.initializeApp(firebaseConfig);
 let auth = firebase.auth();
 let database = firebase.firestore();
 
-let pending = document.getElementById("pending");
+let pendingOrders = document.getElementById("pendingOrders");
+let acceptedOrders = document.getElementById("acceptedOrders");
+acceptedOrders.style.display = "none"
+console.log(acceptedOrders)
 
 let uid;
 auth.onAuthStateChanged((user) => {
@@ -21,13 +24,14 @@ auth.onAuthStateChanged((user) => {
     // console.log(user.uid)
 
 
-    database.collection("orders").where("restaurantKey", "==", uid).get().then((snap) => {
+    database.collection("orders").where("restaurantKey", "==", user.uid).get().then((snap) => {
+
         snap.forEach(element => {
             database.collection("users").doc(element.data().customerUid).get().then((elem) => {
                 // console.log(element.data())
                 database.collection("items").doc(element.data().itemKey.toString()).get().then((item) => {
 
-                    pending.innerHTML += `<div class="card mt-2">
+                    pendingOrders.innerHTML += `<div class="card mt-2">
                     <div class="card-body">
                     <h6 class="card-title">User : ${elem.data().userName}</h6>
                     <hr>
@@ -41,22 +45,23 @@ auth.onAuthStateChanged((user) => {
                         `</li>
                     </ul>
                     <div class="accepRejBtn card-body">
-                    <button onclick='acceptFunc("${elem.data().userName}","${item.data().itemName}"," ${item.data().itemPrice}","${element.data().numOfOrder}","${item.data().deliveryTypeCategory}",this,"${element.id}")' class="btn btn-outline-primary">Accepted</button>
+                    <button onclick='acceptFunc("${elem.data().userName}","${item.data().itemName}"," ${item.data().itemPrice}","${element.data().numOfOrder}","${item.data().deliveryTypeCategory}",this,"${element.id}","${uid}","${element.data().customerUid}")' class="btn btn-outline-primary">Accepted</button>
                     <button onclick='rejectFunc(this,"${element.id}")' class="btn btn-outline-danger">Reject</button>
                     </div>
                     </div>
                     `
-                    // console.log(element.id)
+                    console.log(uid, element.data().customerUid)
                 })
             })
 
         });
     })
+
 })
 
-let acceptFunc = (userName, itemName, itemPrice, numOfOrder, deliveryTypeCategory, e, elementId) => {
+let acceptFunc = (userName, itemName, itemPrice, numOfOrder, deliveryTypeCategory, e, elementId, restaurantUid, userUid) => {
     database.collection("acceptedOrders").add({
-        userName, itemName, itemPrice, numOfOrder, deliveryTypeCategory
+        userName, itemName, itemPrice, numOfOrder, deliveryTypeCategory, restaurantUid, userUid
     })
     database.collection("orders").doc(elementId).delete().then(() => {
         console.log("deleted")
@@ -77,10 +82,33 @@ let rejectFunc = (e, elementId) => {
 }
 
 // *********** accepted orders *************
-// let accepted = document.getElementById("accepted");
+let accepted = ()=>{
+    pendingOrders.style.display = "none"
+    acceptedOrders.style.display = "flex";
+auth.onAuthStateChanged((user) => {
+    console.log(user.uid)
+    database.collection("acceptedOrders").where("restaurantUid", "==", user.uid).get().then((snap) => {
+        snap.forEach(elem => {
+            acceptedOrders.innerHTML +=  `<div class="card mt-2" style="width: 14rem;">
+            <div class="card-body">
+                <h6 class="card-title">User Name : ${elem.data().userName}</h6>
+                <hr>
+                <h6 class="card-subtitle">Item Name : ${elem.data().itemName}</h6>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Price : ${elem.data().itemPrice}</li>
+                <li class="list-group-item">Quantity : ${elem.data().numOfOrder}</li>
+                <li class="list-group-item"><i class="bi bi-truck"></i> ${elem.data().deliveryTypeCategory}</li>
+            </ul>
+            <div class="accepRejBtn card-body">
+                <button class="btn btn-outline-primary">Accept</button>
+                <button class="btn btn-outline-danger">Reject</button>
+            </div>
+        </div>`
+            console.log(element.data())
+        });
+    })
 
-// auth.onAuthStateChanged((user) => {
-//     database.collection("acceptedOrders").where()
-
-// })
+})
+}
 

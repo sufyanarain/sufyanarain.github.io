@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyC3Re5apf53IUF9g_PTQMOllhhY4aDOYmI",
-    authDomain: "foodapp-62728.firebaseapp.com",
-    projectId: "foodapp-62728",
-    storageBucket: "foodapp-62728.appspot.com",
-    messagingSenderId: "846599120867",
-    appId: "1:846599120867:web:b7dc178b5d12ae897662d6"
+    apiKey: "AIzaSyDcr_CC1Mv0YZaXRkfuE-0LAOX2xZV6-Og",
+    authDomain: "balloon-popup-game-27ca9.firebaseapp.com",
+    projectId: "balloon-popup-game-27ca9",
+    storageBucket: "balloon-popup-game-27ca9.appspot.com",
+    messagingSenderId: "178231510017",
+    appId: "1:178231510017:web:e93fb1eafc7b31de1b6c00"
 };
 
 // Initialize Firebase
@@ -59,7 +59,7 @@ let restaurantSignup = () => {
                 restaurantEmail: restaurantEmail.value,
                 restaurantCountry: restaurantCountry.value,
                 restaurantCity: restaurantCity.value,
-                restaurantImage:restaurantImage.value,
+                restaurantImage: restaurantImage.value,
                 restaurant: true,
                 uid: user.user.uid
             })
